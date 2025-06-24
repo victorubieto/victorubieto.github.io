@@ -4,7 +4,7 @@ title: 'Sign Language Machine Translation and the Sign Language Lexicon: A Lingu
 
 authors:
 - Irene Murtagh
-- Víctor Ubieto
+- admin
 - Josep Blat
 
 date: '2022-01-01'

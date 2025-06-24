@@ -2,7 +2,7 @@
 title: 'Sign Language Synthesis: Current Signing Avatar Systems and Representation'
 
 authors:
-- Víctor Ubieto
+- admin
 - Jaume Pozo
 - Eva Valls
 - Beatriz Cabrero-Daniel
