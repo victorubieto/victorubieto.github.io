@@ -59,10 +59,10 @@ sections:
       subtitle: ''
       text: ""
       # Choose how many pages you would like to display (0 = all pages)
-      count: 10
+      count: 0
       filters:
         folders:
-          - posts
+          - publication
         author: ""
         category: ""
         tag: ""
@@ -82,6 +82,15 @@ sections:
       view: compact
       # Choose how many columns the section has. Valid values: '1' or '2'.
       columns: '1'
+  - block: collection
+    content:
+        title: Projects
+        filters:
+          folders:
+            - projects
+    design:
+      # Choose a listing view
+      view: carousel
   # - block: collection
   #   id: talks
   #   content:
