@@ -6,7 +6,7 @@
 # Appearance
 appearance:
   mode: system
-  color: emerald
+  color: blue
 
 # SEO
 marketing:
@@ -14,8 +14,8 @@ marketing:
     site_type: Person
     local_business_type: ''
     org_name: ''
-    description: 'The highly-customizable Hugo Academic theme powered by Hugo Blox Builder. Easily create your personal academic website.'
-    twitter: 'GetResearchDev'
+    description: 'Personal Academic CV powered by Hugo Blox Builder. Easily create your personal academic website.'
+    twitter: ''
   analytics:
     google_analytics: ''
     baidu_tongji: ''
@@ -29,13 +29,27 @@ marketing:
 # Site header
 header:
   navbar:
+    # Display the navigation bar?
     enable: true
+    # Choose a built-in navigation blox or create your own
     blox: "navbar"
+    # Align menu links: `left`, `center`, or `right`
+    align: "center"
+    # Fix the navigation bar to the top of the page
     fixed_to_top: true
+    # Let the user search from the navigation bar?
     show_search: true
+    # Let the user choose between light or dark mode?
     show_theme_chooser: true
     logo:
-      text: "Your Name"
+      # Logo text
+      text: ""
+      # Logo filename in `assets/media/` folder
+      filename: "icon.png"
+    # Show a language chooser (if you have translated your site content)?
+    show_translations: false
+    # If `show_translations` is enabled, do you wish to hide the current language name?
+    hide_language_name: false
 
 # Site footer
 footer:
