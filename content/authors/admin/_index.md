@@ -23,9 +23,9 @@ highlight_name: true
 role: PhD Student
 
 # Organizations/Affiliations to display in Biography blox
-# organizations:
-#   - name: OpenAI
-#     url: https://openai.com/
+organizations:
+  - name: Universitat Pompeu Fabra
+    url: https://www.upf.edu/
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
