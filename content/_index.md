@@ -62,7 +62,7 @@ sections:
       count: 10
       filters:
         folders:
-          - publication
+          - posts
         author: ""
         category: ""
         tag: ""
