@@ -1,9 +1,10 @@
 ---
-title: Publications
+title: publication
 cms_exclude: true
 
 # View.
-view: compact
+design:
+  view: compact
 
 # Optional header image (relative to `static/media/` folder).
 banner:
