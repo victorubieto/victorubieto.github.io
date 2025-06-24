@@ -67,7 +67,7 @@ education:
   - area: MSc Computer Vision
     institution: Universitat Autònoma de Barcelona
     date_start: 2020-09-01
-    date_end: 2022-06-31
+    date_end: 2022-06-30
     summary: |
       I enrolled in the Master's program with the goal of deepening my
       expertise in the field and establishing connections with industry. During
@@ -77,7 +77,7 @@ education:
   - area: BSc Audiovisual Systems Engineering
     institution: Universitat Pompeu Fabra
     date_start: 2016-09-01
-    date_end: 2020-06-31
+    date_end: 2020-06-30
     summary: |
       At the age of 18, I moved to Barcelona to pursue an engineering degree.
       During this time, I built a strong foundation in scientific knowledge and
