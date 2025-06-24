@@ -58,7 +58,7 @@ education:
   - area: PhD Physically-Based Rendering
     institution: Universitat Pompeu Fabra
     date_start: 2020-10-01
-    date_end: Present
+    date_end: ''
     # summary: |
     #   Thesis on _Why LLMs are awesome_. Supervised by [Prof Joe Smith](https://example.com). Presented papers at 5 IEEE conferences with the contributions being published in 2 Springer journals.
     # button:
