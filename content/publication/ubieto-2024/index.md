@@ -1,17 +1,24 @@
 ---
 title: 'Sign Language Synthesis: Current Signing Avatar Systems and Representation'
+
 authors:
 - Víctor Ubieto
 - Jaume Pozo
 - Eva Valls
 - Beatriz Cabrero-Daniel
 - Josep Blat
+
 date: '2024-01-01'
+
 publishDate: '2025-06-24T17:36:57.186834Z'
+
 publication_types:
 - chapter
+
 publication: '*Sign Language Machine Translation*'
+
 doi: 10.1007/978-3-031-47362-3_10
+
 abstract: Animating avatars for sign languages (SLs) is a challenging task due to
   the high quality and naturalness requirements. Recent publications and media show
   that virtual avatar quality is evolving, yet remain greatly constrained by the predefined
@@ -28,6 +35,22 @@ abstract: Animating avatars for sign languages (SLs) is a challenging task due t
   through sliders and boxes that can be greatly adjusted in time and duration. Hence,
   users can generate new content adapted to their circumstances without the need of
   specialised equipment or knowledge.
+
+tags:
+  - Computer Animation
+  - Sign Language
+  - Machine Learning
+
+# Display this page in the Featured widget?
+featured: true
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder.
+image:
+  caption: "Animics' keyframe animation window view."
+  focal_point: ''
+  preview_only: false
+
 links:
 - name: URL
   url: https://doi.org/10.1007/978-3-031-47362-3_10

@@ -1,14 +1,19 @@
 ---
 title: 'Sign Language Machine Translation and the Sign Language Lexicon: A Linguistically
   In-formed Approach'
+
 authors:
 - Irene Murtagh
 - Víctor Ubieto
 - Josep Blat
+
 date: '2022-01-01'
+
 publishDate: '2025-06-24T17:36:57.175965Z'
+
 publication_types:
 - report
+
 abstract: Natural language processing and the machine translation of spoken language
   (speech/text) has benefitted from significant scientific research and development
   in recent times, rapidly advancing the field. On the other hand, computational processing
@@ -29,6 +34,21 @@ abstract: Natural language processing and the machine translation of spoken lang
   repository entries. This XML description is also lev-eraged in the development of
   an extension to Bahavioural Markup Language, which will be used within this development
   to link the divide between the sign language lexicon and the avatar animation interface.
+
+tags:
+  - Sign Language
+  - Machine Translation
+
+# Display this page in the Featured widget?
+featured: true
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder.
+image:
+  caption: "ISL plain verb lexicon and lexeme repository XML description."
+  focal_point: ''
+  preview_only: false
+
 links:
 - name: URL
   url: https://signon-project.eu
