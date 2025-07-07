@@ -1,13 +1,13 @@
 ---
-title: scikit-learn
-date: 2023-10-26
-external_link: https://github.com/scikit-learn/scikit-learn
+title: Shader Graphs
+date: 2020-05-05
+external_link: https://github.com/victorubieto/graph_system
 tags:
-  - Hugo
-  - Wowchemy
-  - Markdown
+  - Visual Nodes
+  - Shaders
+  - Volume Rendering
 ---
 
-scikit-learn is a Python module for machine learning built on top of SciPy and is distributed under the 3-Clause BSD license.
+This web-based node editor was designed specifically for creating volume visualization shaders. It enables users to load DICOM data and manipulate volume data through function nodes, such as transfer functions and 3D noise modules.
 
 <!--more-->
