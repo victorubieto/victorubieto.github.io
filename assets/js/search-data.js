@@ -51,11 +51,22 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/teaching/";
           },
-        },{id: "post-a-post-with-disqus-comments",
+        },{id: "post-spherical-fibonacci-grids",
         
-          title: "a post with disqus comments",
+          title: "Spherical Fibonacci Grids",
         
-        description: "an example of a blog post with disqus comments",
+        description: "lore ipsum",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/spherical-fibonacci-grids/";
+          
+        },
+      },{id: "post-volumetric-rendering",
+        
+          title: "Volumetric Rendering",
+        
+        description: "lore ipsum",
         section: "Posts",
         handler: () => {
           
