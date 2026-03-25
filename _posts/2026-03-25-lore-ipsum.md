@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Volumetric Rendering
-date: 2015-10-20 11:59:00-0400
+title: Lore Ipsum
+date: 2026-03-25 11:59:00-0400
 description: lore ipsum
-tags: comments
-categories: sample-posts external-services
+tags:
+categories:
 disqus_comments: false
 related_posts: false
 ---
