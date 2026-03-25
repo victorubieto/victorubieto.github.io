@@ -2,8 +2,8 @@
 layout: post
 title: Spherical Fibonacci Grids
 date: 2026-03-25 11:12:00-0400
-description:
-tags: math
+description: lore ipsum
+tags:
 categories:
 related_posts: false
 ---

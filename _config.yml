@@ -92,7 +92,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # -----------------------------------------------------------------------------
 
 blog_name: Free Graphics # blog_name will be displayed in your blog page
-blog_description: open source knowledge for computer graphics enthusiastics
+blog_description: open source knowledge for computer graphics enthusiasts
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
