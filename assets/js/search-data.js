@@ -66,7 +66,7 @@ ninja.data = [{
         
           title: "Spherical Fibonacci Grids",
         
-        description: "lore ipsum",
+        description: "An interactive explanation of Spherical Fibonacci Grids and its properties.",
         section: "Posts",
         handler: () => {
           

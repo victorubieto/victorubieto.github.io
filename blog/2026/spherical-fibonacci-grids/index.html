@@ -1,5 +1,145 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Spherical Fibonacci Grids | Víctor Ubieto </title> <meta name="author" content="Víctor Ubieto"> <meta name="description" content="lore ipsum"> <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?v=a4b3f509e79c54a512b890d73235ef04"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="/assets/css/academicons.min.css?v=f0b7046b84e425c55f3463ac249818f5"> <link defer rel="stylesheet" href="/assets/css/scholar-icons.css?v=62b2ac103a88034e6882a5be5f3e2772"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="/assets/img/cloud_bunny_icon.png?v=d1f889da3307658224dbb25193083503"> <link rel="stylesheet" href="/assets/css/main.css?v=d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://victorubieto.github.io/blog/2026/spherical-fibonacci-grids/"> <script src="/assets/js/theme.js?v=5fea5159b787642c1bbc1f334d60f883"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Spherical Fibonacci Grids | Víctor Ubieto </title> <meta name="author" content="Víctor Ubieto"> <meta name="description" content="An interactive explanation of Spherical Fibonacci Grids and its properties."> <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?v=a4b3f509e79c54a512b890d73235ef04"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="/assets/css/academicons.min.css?v=f0b7046b84e425c55f3463ac249818f5"> <link defer rel="stylesheet" href="/assets/css/scholar-icons.css?v=62b2ac103a88034e6882a5be5f3e2772"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="/assets/img/cloud_bunny_icon.png?v=d1f889da3307658224dbb25193083503"> <link rel="stylesheet" href="/assets/css/main.css?v=d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://victorubieto.github.io/blog/2026/spherical-fibonacci-grids/"> <script src="/assets/js/theme.js?v=5fea5159b787642c1bbc1f334d60f883"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
     initTheme();
-  </script> </head> <body class="fixed-top-nav sticky-bottom-footer"> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Víctor</span> Ubieto </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/teaching/">teaching </a> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Spherical Fibonacci Grids</h1> <p class="post-meta"> Created on March 25, 2026 </p> <p class="post-tags"> <a href="/blog/2026"> <i class="fa-solid fa-calendar fa-sm"></i> 2026 </a> </p> </header> <article class="post-content"> <div id="markdown-content"> <p>Distributed under the terms of the <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="external nofollow noopener" target="_blank">CC BY-NC-ND 4.0</a> License.</p> </div> </article> </div> </div> <footer class="sticky-bottom mt-5" role="contentinfo"> <div class="container"> © Copyright 2026 Víctor Ubieto. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Last updated: April 02, 2026. </div> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=a0db7e5d5c70cc3252b3138b0c91dcaf" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js?v=85ddb88934d28b74e78031fd54cf8308"></script> <script src="/assets/js/no_defer.js?v=2781658a0a2b13ed609542042a859126"></script> <script defer src="/assets/js/common.js?v=c15de51d4bb57887caa2c21988d97279"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=d9f17b6adc2311cbabd747f4538bb15f"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/js/mathjax-setup.js?v=a5bb4e6a542c546dd929b24b8b236dfd"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script defer src="/assets/js/progress-bar.js?v=2f30e0e6801ea8f5036fa66e1ab0a71a" type="text/javascript"></script> <script src="/assets/js/vanilla-back-to-top.min.js?v=f40d453793ff4f64e238e420181a1d17"></script> <script>
+  </script> </head> <body class="fixed-top-nav sticky-bottom-footer"> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Víctor</span> Ubieto </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/teaching/">teaching </a> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Spherical Fibonacci Grids</h1> <p class="post-meta"> Created on March 25, 2026 </p> <p class="post-tags"> <a href="/blog/2026"> <i class="fa-solid fa-calendar fa-sm"></i> 2026 </a>   ·   <a href="/blog/category/interactive"> <i class="fa-solid fa-tag fa-sm"></i> interactive</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <p>Distributed under the terms of the <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="external nofollow noopener" target="_blank">CC BY-NC-ND 4.0</a> License.</p> <p>The <strong>Fibonacci lattice</strong> (also known as the <em>sunflower spiral</em> or <em>Fermat spiral</em>) is one of the most beautiful patterns in mathematics. It appears everywhere in nature: the seeds of a sunflower, the scales of a pine cone, the petals of a daisy. The underlying mechanism is surprisingly simple — place each point at an angle of one <strong>golden ratio turn</strong> from the previous one, and pack them outward radially.</p> <h2 id="the-golden-angle">The Golden Angle</h2> <p>The golden ratio \(\varphi = \frac{1 + \sqrt{5}}{2} \approx 1.618\) gives rise to the <strong>golden angle</strong>:</p> \[\theta = 2\pi \left(1 - \frac{1}{\varphi}\right) \approx 137.5°\] <p>Each new seed in a sunflower is placed at exactly this angle from the previous one. Because \(\varphi\) is the “most irrational” number — the hardest to approximate by rationals — this angle packs seeds with maximum efficiency, leaving no wasted space.</p> <h2 id="the-lattice-formula">The Lattice Formula</h2> <p>For the \(n\)-th point, the polar coordinates are:</p> \[r_n = \sqrt{n}, \quad \alpha_n = n \cdot \theta\] <p>The \(\sqrt{n}\) spacing ensures the points are distributed uniformly in area (equal area per point). Together, this produces the characteristic spiral arms you can see in nature.</p> <h2 id="interactive-visualization">Interactive Visualization</h2> <p>Use the controls below to explore how the distribution changes. Try varying the divergence angle slightly away from the golden angle — the spiral arms collapse into coarse lines. Only near \(137.5°\) does the perfect packing emerge.</p> <style>.fib-container{font-family:inherit;margin:2rem 0}.fib-controls{display:flex;flex-wrap:wrap;gap:1.5rem;margin-bottom:1.5rem;padding:1rem 1.2rem;background:var(--global-bg-color,#f8f8f8);border-radius:8px;border:1px solid var(--global-divider-color,#ddd)}.fib-control-group{display:flex;flex-direction:column;gap:.3rem;min-width:180px}.fib-control-group label{font-size:.82rem;font-weight:600;color:var(--global-text-color-light,#666);text-transform:uppercase;letter-spacing:.05em}.fib-control-group .value-display{font-size:.9rem;font-weight:600;color:var(--global-theme-color,#6c63ff)}.fib-control-group input[type=range]{width:100%;accent-color:var(--global-theme-color,#6c63ff);cursor:pointer}.fib-control-group select{padding:.3rem .5rem;border-radius:5px;border:1px solid var(--global-divider-color,#ccc);background:var(--global-bg-color,white);color:var(--global-text-color,#333);font-size:.9rem;cursor:pointer}#fib-svg-container{display:flex;justify-content:center}#fib-svg-container svg{border-radius:50%;background:var(--global-bg-color,#fff)}.fib-caption{text-align:center;font-size:.82rem;color:var(--global-text-color-light,#888);margin-top:.8rem;font-style:italic}.fib-reset-btn{padding:.35rem .9rem;border-radius:5px;border:1px solid var(--global-theme-color,#6c63ff);background:transparent;color:var(--global-theme-color,#6c63ff);font-size:.85rem;cursor:pointer;transition:background .15s,color .15s;align-self:flex-end}.fib-reset-btn:hover{background:var(--global-theme-color,#6c63ff);color:white}</style> <div class="fib-container"> <div class="fib-controls"> <div class="fib-control-group"> <label>Points</label> <span class="value-display" id="n-display">800</span> <input type="range" id="n-slider" min="50" max="2000" step="50" value="800"> </div> <div class="fib-control-group"> <label>Divergence angle (°)</label> <span class="value-display" id="angle-display">137.508°</span> <input type="range" id="angle-slider" min="130" max="145" step="0.001" value="137.508"> </div> <div class="fib-control-group"> <label>Point size</label> <span class="value-display" id="size-display">3.5</span> <input type="range" id="size-slider" min="1" max="8" step="0.5" value="3.5"> </div> <div class="fib-control-group"> <label>Color mode</label> <select id="color-mode"> <option value="spiral">Spiral angle</option> <option value="radius">Radius</option> <option value="index">Index</option> <option value="solid">Solid</option> </select> </div> <button class="fib-reset-btn" id="reset-btn">↺ Reset</button> </div> <div id="fib-svg-container"></div> <p class="fib-caption" id="fib-caption"> Golden angle (137.508°) — 800 points packed with maximum efficiency </p> </div> <script src="https://cdn.jsdelivr.net/npm/d3@7"></script> <script>
+(function() {
+  const GOLDEN_ANGLE = 137.50776405003785;
+  const DEFAULTS = { n: 800, angle: GOLDEN_ANGLE, size: 3.5, colorMode: 'spiral' };
+
+  let state = { ...DEFAULTS };
+
+  // --- SVG setup ---
+  const containerEl = document.getElementById('fib-svg-container');
+  const W = Math.min(560, containerEl.parentElement.clientWidth || 560);
+  const H = W;
+  const cx = W / 2, cy = H / 2;
+  const maxR = W * 0.46;
+
+  const svg = d3.select('#fib-svg-container')
+    .append('svg')
+    .attr('width', W)
+    .attr('height', H)
+    .attr('viewBox', `0 0 ${W} ${H}`);
+
+  // Background circle clip
+  const defs = svg.append('defs');
+  defs.append('clipPath').attr('id', 'circle-clip')
+    .append('circle').attr('cx', cx).attr('cy', cy).attr('r', maxR);
+
+  // Subtle background circle border
+  svg.append('circle')
+    .attr('cx', cx).attr('cy', cy).attr('r', maxR)
+    .attr('fill', 'none')
+    .attr('stroke', '#ccc')
+    .attr('stroke-width', 1);
+
+  const g = svg.append('g').attr('clip-path', 'url(#circle-clip)');
+
+  // --- Color scales ---
+  function getColor(i, n, angle) {
+    if (state.colorMode === 'solid') return 'var(--global-theme-color, #6c63ff)';
+    if (state.colorMode === 'radius') {
+      return d3.interpolateViridis(Math.sqrt(i / n));
+    }
+    if (state.colorMode === 'index') {
+      return d3.interpolatePlasma(i / n);
+    }
+    // spiral: color by angle in the spiral
+    const spiralAngle = ((i * angle) % 360) / 360;
+    return d3.interpolateRainbow(spiralAngle);
+  }
+
+  // --- Draw ---
+  function draw() {
+    const { n, angle, size } = state;
+    const angleRad = (angle * Math.PI) / 180;
+
+    const data = d3.range(n).map(i => {
+      const r = maxR * Math.sqrt((i + 0.5) / n);
+      const a = i * angleRad;
+      return {
+        x: cx + r * Math.cos(a),
+        y: cy + r * Math.sin(a),
+        i,
+        r
+      };
+    });
+
+    const dots = g.selectAll('circle.dot').data(data, d => d.i);
+
+    // Enter
+    dots.enter()
+      .append('circle')
+      .attr('class', 'dot')
+      .attr('cx', d => d.x)
+      .attr('cy', d => d.y)
+      .attr('r', 0)
+      .attr('fill', d => getColor(d.i, n, angle))
+      .attr('opacity', 0.85)
+      .transition().duration(300)
+      .attr('r', size);
+
+    // Update
+    dots.transition().duration(120)
+      .attr('cx', d => d.x)
+      .attr('cy', d => d.y)
+      .attr('r', size)
+      .attr('fill', d => getColor(d.i, n, angle));
+
+    // Exit
+    dots.exit().transition().duration(200).attr('r', 0).remove();
+
+    // Caption
+    const isGolden = Math.abs(angle - GOLDEN_ANGLE) < 0.01;
+    const caption = isGolden
+      ? `Golden angle (${angle.toFixed(3)}°) — ${n} points packed with maximum efficiency`
+      : `Divergence angle: ${angle.toFixed(3)}° — ${n} points (golden angle = ${GOLDEN_ANGLE.toFixed(3)}°)`;
+    document.getElementById('fib-caption').textContent = caption;
+  }
+
+  // --- Controls ---
+  const nSlider    = document.getElementById('n-slider');
+  const angleSlider = document.getElementById('angle-slider');
+  const sizeSlider  = document.getElementById('size-slider');
+  const colorSelect = document.getElementById('color-mode');
+  const resetBtn    = document.getElementById('reset-btn');
+
+  nSlider.addEventListener('input', () => {
+    state.n = +nSlider.value;
+    document.getElementById('n-display').textContent = state.n;
+    draw();
+  });
+
+  angleSlider.addEventListener('input', () => {
+    state.angle = +angleSlider.value;
+    document.getElementById('angle-display').textContent = state.angle.toFixed(3) + '°';
+    draw();
+  });
+
+  sizeSlider.addEventListener('input', () => {
+    state.size = +sizeSlider.value;
+    document.getElementById('size-display').textContent = state.size;
+    draw();
+  });
+
+  colorSelect.addEventListener('change', () => {
+    state.colorMode = colorSelect.value;
+    draw();
+  });
+
+  resetBtn.addEventListener('click', () => {
+    state = { ...DEFAULTS };
+    nSlider.value = state.n;
+    angleSlider.value = state.angle;
+    sizeSlider.value = state.size;
+    colorSelect.value = state.colorMode;
+    document.getElementById('n-display').textContent = state.n;
+    document.getElementById('angle-display').textContent = state.angle.toFixed(3) + '°';
+    document.getElementById('size-display').textContent = state.size;
+    draw();
+  });
+
+  draw();
+})();
+</script> <h2 id="why-does-the-golden-angle-work">Why does the golden angle work?</h2> <p>The Fibonacci numbers \(1, 1, 2, 3, 5, 8, 13, 21, \ldots\) appear because their ratios converge to \(\varphi\). When you look at a sunflower, you always find two families of spirals — one going clockwise, one counter-clockwise — and their counts are always consecutive Fibonacci numbers (e.g. 34 and 55, or 55 and 89).</p> <p>This is a direct consequence of the golden angle: consecutive Fibonacci-numbered spiral arms are the <em>best rational approximations</em> to the golden ratio, so they dominate the visual pattern.</p> <p>Try dragging the <strong>divergence angle</strong> slider slightly away from 137.508° and watch the tightly-packed arrangement dissolve into coarse radial spokes — a vivid demonstration of why irrationality is, paradoxically, the most efficient packing strategy nature could have chosen.</p> </div> </article> </div> </div> <footer class="sticky-bottom mt-5" role="contentinfo"> <div class="container"> © Copyright 2026 Víctor Ubieto. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Last updated: April 02, 2026. </div> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=a0db7e5d5c70cc3252b3138b0c91dcaf" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js?v=85ddb88934d28b74e78031fd54cf8308"></script> <script src="/assets/js/no_defer.js?v=2781658a0a2b13ed609542042a859126"></script> <script defer src="/assets/js/common.js?v=c15de51d4bb57887caa2c21988d97279"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=d9f17b6adc2311cbabd747f4538bb15f"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/js/mathjax-setup.js?v=a5bb4e6a542c546dd929b24b8b236dfd"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script defer src="/assets/js/progress-bar.js?v=2f30e0e6801ea8f5036fa66e1ab0a71a" type="text/javascript"></script> <script src="/assets/js/vanilla-back-to-top.min.js?v=f40d453793ff4f64e238e420181a1d17"></script> <script>
     addBackToTop();
   </script> </body> </html>
