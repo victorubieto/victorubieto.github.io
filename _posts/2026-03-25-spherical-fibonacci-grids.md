@@ -10,16 +10,16 @@ related_posts: false
 
 Distributed under the terms of the [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) License.
 
-The main problem in *Physically-Based Ray Tracing* is converging the value of the *illumination integral* that appears in the *Light Transport Equation* (LTE). Integral equations generally do not have an analytic solution, so numerical integration techniques are used. The most common approach is *Monte Carlo integration* (MC), which is based on randomization:
+The main problem in **Physically-Based Ray Tracing** is converging the value of the illumination integral that appears in the **Light Transport Equation** (LTE). Integral equations generally do not have an analytic solution, so numerical integration techniques are used. The most common approach is **Monte Carlo integration** (MC), which is based on randomization:
 
 $$L_o(\mathbf{p}, \omega_o) = L_e(\mathbf{p}, \omega_o) + \int_{S^2} f(\mathbf{p}, \omega_o, \omega_i)\, L_i(\mathbf{p}, \omega_i)\, |\cos\theta_i|\, d\omega_i$$
 
-Further improvements focus on manipulating the random sampling to minimize convergence time — that is, distributing the samples so that we obtain the minimum error with the minimum number of samples. These methods fall under the category of *Quasi-Monte Carlo integration* (QMC).
+Further improvements focus on manipulating the random sampling to minimize convergence time — that is, distributing the samples so that we obtain the minimum error with the minimum number of samples. These methods fall under the category of **Quasi-Monte Carlo integration** (QMC).
 
 In this context, we find utility in low-discrepancy distributions such as Fibonacci-based spherical distributions. The main strength of these point sets is an extremely uniform distribution which is near-optimal in terms of *spherical cap discrepancy*. There are two families of such point sets:
 
-- **(i) SFIL** — Spherical Fibonacci point sets based on planar Fibonacci integration lattices.
-- **(ii) SFG** — Spherical Fibonacci point sets based on planar Fibonacci grids.
+- **SFIL** — Spherical Fibonacci point sets based on planar Fibonacci integration lattices.
+- **SFG** — Spherical Fibonacci point sets based on planar Fibonacci grids.
 
 SFILs constrain point set sizes to be Fibonacci numbers. SFGs, on the other hand, allow generating point sets with an arbitrary number of points — which is strongly important in Physically-Based Rendering. For this reason, we focus on SFGs.
 
@@ -390,7 +390,7 @@ Due to this relation, Fibonacci-based distributions are frequently found in many
 
 The Cartesian coordinates $$(x_j,\, y_j)$$ of the $$j$$-th point of a **Planar Fibonacci Grid** with $$N$$ samples are given by:
 
-$$x_j = \frac{j}{N}, \qquad y_j = \text{frac}\!\left(\frac{j}{\Phi}\right) \qquad 0 \leq j <= N$$
+$$x_j = \frac{j}{N}, \qquad y_j = \text{frac}\!\left(\frac{j}{\Phi}\right) \qquad 0 \leq j \leq N$$
 
 where $$\text{frac}(\cdot)$$ denotes the fractional part, keeping values inside the unit square $$[0,1)^2$$.
 
@@ -610,8 +610,6 @@ The viewer below shows the Planar Fibonacci Grid in the unit square. Observe how
 })();
 </script>
 
-### Reading the grid
-
 The vertical lines in the plot are spaced exactly $$1/N$$ apart — one column per point. Within each column there is exactly one sample, placed at a $$y$$-height of $$\text{frac}(j/\Phi)$$. Because $$\Phi$$ is irrational, these heights never repeat, and consecutive heights always differ by the golden ratio modulo 1 — the most uniform possible stepping.
 
 The red dashed line marks $$y = 1/\Phi \approx 0.618$$, corresponding to the $$y$$-offset of the first point after $$j=0$$.
@@ -651,4 +649,4 @@ $$\phi_j = 2\pi j\,\Phi^{-1} \bmod 2\pi$$
 
 
 ## References
-- Marques et al. (2021), *Extensible Spherical Fibonacci Grids*, IEEE Transactions on Visualization and Computer Graphics.
+- Marques, R. et al. (2021), *Extensible Spherical Fibonacci Grids*, IEEE Transactions on Visualization and Computer Graphics.
