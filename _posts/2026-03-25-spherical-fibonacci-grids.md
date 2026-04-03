@@ -386,11 +386,11 @@ Due to this relation, Fibonacci-based distributions are frequently found in many
 
 ---
 
-### Spherical Fibonacci Grid
+## Spherical Fibonacci Grid
 
 The Cartesian coordinates $$(x_j,\, y_j)$$ of the $$j$$-th point of a **Planar Fibonacci Grid** with $$N$$ samples are given by:
 
-$$x_j = \frac{j}{N}, \qquad y_j = \text{frac}\!\left(\frac{j}{\Phi}\right) \qquad 0 \leq j < N$$
+$$x_j = \frac{j}{N}, \qquad y_j = \text{frac}\!\left(\frac{j}{\Phi}\right) \qquad 0 \leq j <= N$$
 
 where $$\text{frac}(\cdot)$$ denotes the fractional part, keeping values inside the unit square $$[0,1)^2$$.
 
@@ -618,8 +618,37 @@ The red dashed line marks $$y = 1/\Phi \approx 0.618$$, corresponding to the $$y
 
 ---
 
+We can directly define the distribution on the unit sphere by using the **Lambert cylindrical equal-area projection**. The result gives us the samples in terms of the elevation angle $$\theta$$ and the azimuth angle $$\phi$$. To maintain the uniformity of the samples along the vertical axis, the $$x$$ coordinate is mapped to $$z = \cos(\theta)$$. This projection gives us the following relation equations:
+
+$$x = (1 - \cos(\theta))\,/\,2, \qquad y = \phi\,/\,2\pi$$
+
+By substituting in the previous equation we obtain the polar coordinates of the $$j$$-th point of a Spherical Fibonacci Grid:
+
+$$\theta_j = \arccos\!\left(1 - \frac{2j}{N}\right) \bigg\} \quad 0 \leq j < N$$
+
+$$\phi_j = 2\pi j\,\Phi^{-1} \bmod 2\pi$$
+
+### Symmetrized SFG (z-shift)
+
+Furthermore, SFGs are sometimes expressed with a shift in the $$z$$-axis. This shift symmetrizes the $$z$$-coordinate distribution so that the first and last points are at equal distances from their closest pole, which **improves the spherical discrepancy** of the point set.
+
+This shift is half the distance between samples (the delta) in the $$z$$-axis. It can be computed either in the unit square or on the unit sphere:
+
+- **Unit Square:** $$x$$ delta $$= 1/N \;\Rightarrow\;$$ half of this distance $$= 1/2N$$
+- **Unit Sphere:** $$z = \cos(\theta) = 1 - 2x = 1 - 2j/N \;\Rightarrow\;$$ $$z$$ delta $$= 2/N \;\Rightarrow\;$$ half of this distance $$= 1/N$$
+
+The symmetrized formulas become:
+
+$$\theta_j = \arccos\!\left(1 - \frac{2j+1}{N}\right) \bigg\} \quad 0 \leq j < N$$
+
+$$\phi_j = 2\pi j\,\Phi^{-1} \bmod 2\pi$$
+
+---
+
+## Basis Vectors of a SFG
+
 ...
 
 
 ## References
-- Marques et al. (2021), *Extensible Spherical Fibonacci Grids*, ACM Transactions on Graphics.
+- Marques et al. (2021), *Extensible Spherical Fibonacci Grids*, IEEE Transactions on Visualization and Computer Graphics.
