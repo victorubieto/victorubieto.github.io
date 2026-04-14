@@ -105,13 +105,35 @@ Due to this relation, Fibonacci-based distributions are frequently found in many
 
 ---
 
-The Cartesian coordinates $$(x_j,\, y_j)$$ of the $$j$$-th point of a **Planar Fibonacci Grid** with $$N$$ samples are given by:
+The Cartesian coordinates $(x_j,\, y_j)$ of the $$j$$-th point of a **Planar Fibonacci Grid** with $$N$$ samples are given by:
 
-$$x_j = \frac{j}{N}, \qquad y_j = \text{frac}\!\left(\frac{j}{\Phi}\right) \qquad 0 \leq j \leq N$$
+$$x_j = \frac{j}{N} \quad , \qquad y_j = \text{frac}\!\left(\frac{j}{\Phi}\right) \qquad 0 \leq j \leq N$$
 
-where $$\text{frac}(\cdot)$$ denotes the fractional part, keeping values inside the unit square $$[0,1)^2$$.
+$$
+\left.
+\begin{aligned}
+x_j &= \frac{j}{N} \\
+y_j &= \operatorname{frac}\!\left(\frac{j}{\Phi}\right)
+\end{aligned}
+\right\}
+\quad
+0 \le j \le N
+$$
 
-This gives a distribution of samples in the unit square where each coordinate has a different delta (space between points): $$1/N$$ in the $$x$$ coordinate, and $$1/\Phi$$ in the $$y$$ coordinate.
+\[
+\left.
+\begin{aligned}
+x_j &= \frac{j}{N} \\
+y_j &= \operatorname{frac}\!\left(\frac{j}{\Phi}\right)
+\end{aligned}
+\right\}
+\quad
+0 \le j \le N
+\]
+
+where $frac()$ denotes the fractional part, keeping values inside the unit square $[0,1)^2$.
+
+This gives a distribution of samples in the unit square where each coordinate has a different delta (space between points): $$\frac{1}{N}$$ in the $$x$$ coordinate, and $$\frac{1}{\Phi}$$ in the $$y$$ coordinate.
 
 ---
 
@@ -335,7 +357,8 @@ The red dashed line marks $$y = 1/\Phi \approx 0.618$$, corresponding to the $$y
 
 We can directly define the distribution on the unit sphere by using the **Lambert cylindrical equal-area projection**. The result gives us the samples in terms of the elevation angle $$\theta$$ and the azimuth angle $$\phi$$. To maintain the uniformity of the samples along the vertical axis, the $$x$$ coordinate is mapped to $$z = \cos(\theta)$$. This projection gives us the following relation equations:
 
-$$x = (1 - \cos(\theta))\,/\,2, \qquad y = \phi\,/\,2\pi$$
+$$x = \frac{(1 - \cos(\theta))}{2}$$
+$$y = \frac{\phi}{2\pi}$$
 
 By substituting in the previous equation we obtain the polar coordinates of the $$j$$-th point of a Spherical Fibonacci Grid:
 
