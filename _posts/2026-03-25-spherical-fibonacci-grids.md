@@ -345,6 +345,7 @@ The red dashed line marks $$y = 1/\Phi \approx 0.618$$, corresponding to the $$y
 We can directly define the distribution on the unit sphere by using the **Lambert cylindrical equal-area projection**. The result gives us the samples in terms of the elevation angle $$\theta$$ and the azimuth angle $$\phi$$. To maintain the uniformity of the samples along the vertical axis, the $$x$$ coordinate is mapped to $$z = \cos(\theta)$$. This projection gives us the following relation equations:
 
 $$x = \frac{(1 - \cos(\theta))}{2}$$
+
 $$y = \frac{\phi}{2\pi}$$
 
 By substituting in the previous equation we obtain the polar coordinates of the $$j$$-th point of a Spherical Fibonacci Grid:
@@ -360,16 +361,12 @@ $$
 0 \le j \le N
 $$
 
-$$\theta_j = \arccos\!\left(1 - \frac{2j}{N}\right) \bigg\} \quad 0 \leq j < N$$
-
-$$\phi_j = 2\pi j\,\Phi^{-1} \bmod 2\pi$$
-
 Then, SFGs are sometimes expressed with a shift in the $$z$$ axis. This shift symmetrizes the $$z$$ coordinate distribution so that the first and last points are at equal distances from their closest pole, which **improves the spherical discrepancy** of the point set.
 
 This shift is half the distance between samples in the $$z$$ axis (half the delta). It can be computed either in the unit square or on the unit sphere:
 
-- **Unit Square:** $$\Delta x = \frac{1}{N} \Rightarrow$$ (half of this distance) $$= \frac{1}{2N}$$
-- **Unit Sphere:** $$z = \cos(\theta) = 1 - 2x = \frac{1 - 2j}{N} \Rightarrow \Delta z = \frac{2}{N} \Rightarrow$$ (half of this distance) $$= \frac{1}{N}$$
+- **Unit Square:** $$\Delta x = \frac{1}{N} \Rightarrow$$ (half of this distance) $$\Rightarrow \frac{1}{2N}$$
+- **Unit Sphere:** $$z = \cos(\theta) = 1 - 2x = \frac{1 - 2j}{N} \Rightarrow \Delta z = \frac{2}{N} \Rightarrow$$ (half of this distance) $$\Rightarrow \frac{1}{N}$$
 
 The symmetrized formulas become:
 
@@ -384,17 +381,46 @@ $$
 0 \le j \le N
 $$
 
-
-$$\theta_j = \arccos\!\left(1 - \frac{2j+1}{N}\right) \bigg\} \quad 0 \leq j < N$$
-
-$$\phi_j = 2\pi j\,\Phi^{-1} \bmod 2\pi$$
+[HEMISPHERE EQUATIONS]
 
 ---
 
 ## Basis Vectors of a SFG
 
-...
+An alternative definition of a planar Fibonacci grid exists using a pair of consecutive basis vectors. In this case, the points are not restricted to the unit square, so they exist in a planar Fibonacci lattice $F_L$.
 
+[Eq 4 from Ricardo’s paper]
+
+Swinbank and Purser observed that the basis vectors of a F_L are:
+
+[Eq 5 from Ricardo’s paper]
+
+and $k_m$ such that: $$F_{k_m} \leq N < F_{k_m+1}$$
+
+where $$N$$ is the number of points on the grid and $$F_{k_m} the largest Fibonacci number smaller or equal to $N$. The basis vectors satisfy a recurrence relationship similar to that of Fibonacci numbers. 
+
+$$b_{k+1} = b_k + b_{k-1}$$
+
+### Unit Cell
+
+Using any pair of basis vectors (bk, bk+1) we can obtain a parallelogram area called unit cell. By definition the unit cell does not contain any point in its interior.
+
+Using a common linear algebra rule, we can compute the area of the parallelogram by doing the determinant of the matrix composed by the vectors of that parallelogram ([reference video](https://youtu.be/n-S63_goDFg)), in this case, the basis vectors.
+
+$$
+\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}
+$$
+
+$$det(M) = \Delta_M = \frac{F_k}{N} · \frac{(-1)^{k}}{\Phi^{k+1}} - \frac{F_{k+1}}{N} · \frac{(-1)^{k-1}}{\Phi^{k}} = \frac{1}{N}$$
+
+The result confirms us that this is a suitable lattice for QMC numerical integration.
+
+### Interpolation
+
+...
 
 ## References
 - Marques, R. et al. (2021), *Extensible Spherical Fibonacci Grids*, IEEE Transactions on Visualization and Computer Graphics.
