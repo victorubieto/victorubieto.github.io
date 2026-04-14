@@ -344,7 +344,7 @@ The red dashed line marks $$y = 1/\Phi \approx 0.618$$, corresponding to the $$y
 
 We can directly define the distribution on the unit sphere by using the **Lambert cylindrical equal-area projection**. The result gives us the samples in terms of the elevation angle $$\theta$$ and the azimuth angle $$\phi$$. To maintain the uniformity of the samples along the vertical axis, the $$x$$ coordinate is mapped to $$z = \cos(\theta)$$. This projection gives us the following relation equations:
 
-$$x = \frac{(1 - \cos(\theta))}{2}$$
+$$x = \frac{1 - \cos(\theta)}{2}$$
 
 $$y = \frac{\phi}{2\pi}$$
 
@@ -381,23 +381,23 @@ $$
 0 \le j \le N
 $$
 
-[HEMISPHERE EQUATIONS]
+[HEMISPHERE EQUATIONS ...]
 
 ---
 
 ## Basis Vectors of a SFG
 
-An alternative definition of a planar Fibonacci grid exists using a pair of consecutive basis vectors. In this case, the points are not restricted to the unit square, so they exist in a planar Fibonacci lattice $F_L$.
+An alternative definition of a planar Fibonacci grid exists using a pair of consecutive $basis vectors$. In this case, the points are not restricted to the unit square but they exist in a planar Fibonacci lattice $F_L$.
 
-[Eq 4 from Ricardo’s paper]
+$$F_L = {p = z_0 b_k + z_1 b_{k+1} : (z_0, z_1) \in \mathbb{Z}^2}$$
 
-Swinbank and Purser observed that the basis vectors of a F_L are:
+Swinbank and Purser observed that the basis vectors of a $F_L$ are expressed by:
 
-[Eq 5 from Ricardo’s paper]
+$$b_k = (\frac{F_k}{N}, \frac{(-1)^{k-1}}{\Phi^k}) \quad , \qquad k = 0, 1, \ldots, k_m$$
 
 and $k_m$ such that: $$F_{k_m} \leq N < F_{k_m+1}$$
 
-where $$N$$ is the number of points on the grid and $$F_{k_m} the largest Fibonacci number smaller or equal to $N$. The basis vectors satisfy a recurrence relationship similar to that of Fibonacci numbers. 
+where $N$ is the number of points on the grid and $F_{k_m}$ the largest Fibonacci number smaller or equal to $N$. The basis vectors satisfy a recurrence relationship similar to that of Fibonacci numbers. 
 
 $$b_{k+1} = b_k + b_{k-1}$$
 
@@ -407,10 +407,14 @@ Using any pair of basis vectors (bk, bk+1) we can obtain a parallelogram area ca
 
 Using a common linear algebra rule, we can compute the area of the parallelogram by doing the determinant of the matrix composed by the vectors of that parallelogram ([reference video](https://youtu.be/n-S63_goDFg)), in this case, the basis vectors.
 
-$$
+$$M = 
 \begin{bmatrix}
-a & b \\
-c & d
+b_k & b_{k+1}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{F_k}{N} & \frac{F_{k+1}}{N} \\
+\frac{(-1)^{k-1}}{\Phi^{k}} & \frac{(-1)^{k}}{\Phi^{k+1}}
 \end{bmatrix}
 $$
 
