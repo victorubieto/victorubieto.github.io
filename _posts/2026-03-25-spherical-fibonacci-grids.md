@@ -57,15 +57,33 @@ $$\Phi = 1 + \frac{1}{\Phi} =  1 + \frac{1}{1 + \frac{1}{1 + \frac{1}{\ldots}}}$
 #### Further Golden Ratio Identities
 
 <details>
-<summary>$\Phi^{-1} = \frac{\sqrt{5} - 1}{2}$</summary>
+<summary>$\quad \Phi^{-1} = \frac{\sqrt{5} - 1}{2}$</summary>
 $$\Phi^{-1} = \frac{1}{\Phi} = \frac{2}{\sqrt{5} + 1} = \frac{2}{\sqrt{5} + 1} · \frac{\sqrt{5} - 1}{\sqrt{5} - 1} = 
 \frac{2 (\sqrt{5} - 1)}{\sqrt{5} \sqrt{5} - \sqrt{5} + \sqrt{5} - 1}  = \frac{2 (\sqrt{5} - 1)}{4} = \frac{\sqrt{5} - 1}{2}$$
 </details>
 
 <details>
-<summary>Click to expand proof &nbsp; $\Phi - \Phi^{-1} = 1$</summary>
+<summary>$\quad \Phi - \Phi^{-1} = 1$</summary>
 $$\Phi - \Phi^{-1} = \frac{1 + \sqrt{5}}{2} - \frac{\sqrt{5} - 1}{2} = \frac{2}{2} = 1$$
 </details>
+
+<details>
+<summary>$\quad \Phi^{2} = \frac{3 + \sqrt{5}}{2}$</summary>
+$$\Phi^{2} = (\frac{1 + \sqrt{5}}{2})^{2} = \frac{1 + \sqrt{5} + \sqrt{5} + \sqrt{5}^{2}}{4} = \frac{6 + 2 \sqrt{5}}{4} = \frac{3 + \sqrt{5}}{2}$$
+</details>
+
+<details>
+<summary>$\quad \Phi + 1 = \frac{3 + \sqrt{5}}{2}$</summary>
+$$\Phi + 1 = \frac{1 + \sqrt{5}}{2} + 1 = \frac{1 + \sqrt{5} + 2}{2} = \frac{3 + \sqrt{5}}{2}$$
+</details>
+
+<details>
+<summary>$\quad \Phi^{-2} = \frac{3 - \sqrt{5}}{2}$</summary>
+$$\Phi^{-2} = \frac{1}{\Phi^{2}} = \frac{2}{3 + \sqrt{5}} = \frac{2}{3 + \sqrt{5}} · \frac{3 - \sqrt{5}}{3 - \sqrt{5}} = 
+\frac{2 (3 - \sqrt{5})}{9 - 3 \sqrt{5} + 3 \sqrt{5} - \sqrt{5}^{2}} = \frac{6 - 2 \sqrt{5}}{9 - 5} = \frac{3 - \sqrt{5}}{2}$$
+</details>
+
+<br>
 
 ### Fibonacci Theory
 
