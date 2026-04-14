@@ -24,9 +24,10 @@ In this context, we find utility in low-discrepancy distributions such as Fibona
 
 On one hand, SFILs constrain point set sizes to be Fibonacci numbers. SFGs, on the other hand, allow generating point sets with an arbitrary number of points — which is strongly important in Physically-Based Rendering. For this reason, we will focus on SFGs.
 
----
 
 ## Theoretical Background
+
+---
 
 ### Golden Ratio
 
@@ -45,21 +46,25 @@ The key identity to see what makes it unique is the following equation (its deri
 
 \begin{equation}
     \label{gr key identity}
-    \frac{1}{\Phi} = \Phi - 1 \longrightarrow \frac{1}{\Phi} + 1 = \Phi \longrightarrow 1 + \Phi = \Phi^{2}   
+    \frac{1}{\Phi} = \Phi - 1 \Rightarrow \frac{1}{\Phi} + 1 = \Phi \Rightarrow 1 + \Phi = \Phi^{2}   
 \end{equation}
 
-This is mathematically exact and unique to the golden ratio because it satisfies the quadratic equation. We can also sustitute $$\Phi$$ in \eqref{gr key identity} to see it in a continued fraction expansion form. This shows that the golden ratio is the most irrational number, meaning that its rational approximation converges slower than for any other irrational number.
+This is mathematically exact and unique to the golden ratio because it satisfies the quadratic equation. We can also sustitute $$\Phi$$ in Eq. \eqref{gr key identity} to see it in a continued fraction expansion form. This shows that the golden ratio is the most irrational number, meaning that its rational approximation converges slower than for any other irrational number.
 
 $$\Phi = 1 + \frac{1}{\Phi} =  1 + \frac{1}{1 + \frac{1}{1 + \frac{1}{\ldots}}}$$
 
 #### Further Golden Ratio Identities
 
-$$\Phi^{-1} = \frac{1}{\Phi} = \frac{2}{\sqrt{5} + 1} = \frac{2}{\sqrt{5} + 1} * \frac{\sqrt{5} - 1}{\sqrt{5} - 1} = 
-\frac{2 * (\sqrt{5} - 1)}{\sqrt{5} * \sqrt{5} - \sqrt{5} + \sqrt{5} - 1}  = \frac{2 * (\sqrt{5} - 1)}{4} = \frac{\sqrt{5} - 1}{2}$$
+<details>
+    <summary>$$\Phi^{-1} = \frac{\sqrt{5} - 1}{2}$$ &nbsp; — click to expand proof</summary>
+    $$\Phi^{-1} = \frac{1}{\Phi} = \frac{2}{\sqrt{5} + 1} = \frac{2}{\sqrt{5} + 1} · \frac{\sqrt{5} - 1}{\sqrt{5} - 1} = 
+    \frac{2 (\sqrt{5} - 1)}{\sqrt{5} \sqrt{5} - \sqrt{5} + \sqrt{5} - 1}  = \frac{2 (\sqrt{5} - 1)}{4} = \frac{\sqrt{5} - 1}{2}$$
+</details>
 
-$$\Phi - \Phi^{-1} = \frac{1 + \sqrt{5}}{2} - \frac{\sqrt{5} - 1}{2} = \frac{2}{2} = 1$$
-
----
+<details>
+    <summary>$$\Phi - \Phi^{-1} = 1$$ &nbsp; — click to expand proof</summary>
+    $$\Phi - \Phi^{-1} = \frac{1 + \sqrt{5}}{2} - \frac{\sqrt{5} - 1}{2} = \frac{2}{2} = 1$$
+</details>
 
 ### Fibonacci Theory
 
@@ -75,9 +80,10 @@ $$\lim_{m \to \infty} \frac{F_{m+1}}{F_m} = \Phi \approx 1.618\ldots$$
 
 Due to this relation, Fibonacci-based distributions are frequently found in many applications requiring uniform, low-discrepancy coverage of a domain.
 
----
 
 ## Spherical Fibonacci Grid
+
+---
 
 The Cartesian coordinates $$(x_j,\, y_j)$$ of the $$j$$-th point of a **Planar Fibonacci Grid** with $$N$$ samples are given by:
 
