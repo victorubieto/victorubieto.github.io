@@ -107,8 +107,6 @@ Due to this relation, Fibonacci-based distributions are frequently found in many
 
 The Cartesian coordinates $(x_j,\, y_j)$ of the $$j$$-th point of a **Planar Fibonacci Grid** with $$N$$ samples are given by:
 
-$$x_j = \frac{j}{N} \quad , \qquad y_j = \text{frac}\!\left(\frac{j}{\Phi}\right) \qquad 0 \leq j \leq N$$
-
 $$
 \left.
 \begin{aligned}
@@ -119,17 +117,6 @@ y_j &= \operatorname{frac}\!\left(\frac{j}{\Phi}\right)
 \quad
 0 \le j \le N
 $$
-
-\[
-\left.
-\begin{aligned}
-x_j &= \frac{j}{N} \\
-y_j &= \operatorname{frac}\!\left(\frac{j}{\Phi}\right)
-\end{aligned}
-\right\}
-\quad
-0 \le j \le N
-\]
 
 where $frac()$ denotes the fractional part, keeping values inside the unit square $[0,1)^2$.
 
@@ -362,20 +349,41 @@ $$y = \frac{\phi}{2\pi}$$
 
 By substituting in the previous equation we obtain the polar coordinates of the $$j$$-th point of a Spherical Fibonacci Grid:
 
+$$
+\left.
+\begin{aligned}
+\theta_j = \arccos\!\left(1 - \frac{2j}{N}\right) \\
+\phi_j = 2\pi j\,\Phi^{-1} \bmod 2\pi
+\end{aligned}
+\right\}
+\quad
+0 \le j \le N
+$$
+
 $$\theta_j = \arccos\!\left(1 - \frac{2j}{N}\right) \bigg\} \quad 0 \leq j < N$$
 
 $$\phi_j = 2\pi j\,\Phi^{-1} \bmod 2\pi$$
 
-### Symmetrized SFG (z-shift)
+Then, SFGs are sometimes expressed with a shift in the $$z$$ axis. This shift symmetrizes the $$z$$ coordinate distribution so that the first and last points are at equal distances from their closest pole, which **improves the spherical discrepancy** of the point set.
 
-Furthermore, SFGs are sometimes expressed with a shift in the $$z$$-axis. This shift symmetrizes the $$z$$-coordinate distribution so that the first and last points are at equal distances from their closest pole, which **improves the spherical discrepancy** of the point set.
+This shift is half the distance between samples in the $$z$$ axis (half the delta). It can be computed either in the unit square or on the unit sphere:
 
-This shift is half the distance between samples (the delta) in the $$z$$-axis. It can be computed either in the unit square or on the unit sphere:
-
-- **Unit Square:** $$x$$ delta $$= 1/N \;\Rightarrow\;$$ half of this distance $$= 1/2N$$
-- **Unit Sphere:** $$z = \cos(\theta) = 1 - 2x = 1 - 2j/N \;\Rightarrow\;$$ $$z$$ delta $$= 2/N \;\Rightarrow\;$$ half of this distance $$= 1/N$$
+- **Unit Square:** $$\Delta x = \frac{1}{N} \Rightarrow$$ (half of this distance) $$= \frac{1}{2N}$$
+- **Unit Sphere:** $$z = \cos(\theta) = 1 - 2x = \frac{1 - 2j}{N} \Rightarrow \Delta z = \frac{2}{N} \Rightarrow$$ (half of this distance) $$= \frac{1}{N}$$
 
 The symmetrized formulas become:
+
+$$
+\left.
+\begin{aligned}
+\theta_j = \arccos\!\left(1 - \frac{2j+1}{N}\right) \\
+\phi_j = 2\pi j\,\Phi^{-1} \bmod 2\pi
+\end{aligned}
+\right\}
+\quad
+0 \le j \le N
+$$
+
 
 $$\theta_j = \arccos\!\left(1 - \frac{2j+1}{N}\right) \bigg\} \quad 0 \leq j < N$$
 
