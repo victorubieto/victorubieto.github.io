@@ -57,14 +57,14 @@ $$\Phi = 1 + \frac{1}{\Phi} =  1 + \frac{1}{1 + \frac{1}{1 + \frac{1}{\ldots}}}$
 #### Further Golden Ratio Identities
 
 <details>
-<summary>$$\Phi^{-1} = \frac{\sqrt{5} - 1}{2}$$ &nbsp; — click to expand proof</summary>
+<summary>$\Phi^{-1} = \frac{\sqrt{5} - 1}{2}$</summary>
 $$\Phi^{-1} = \frac{1}{\Phi} = \frac{2}{\sqrt{5} + 1} = \frac{2}{\sqrt{5} + 1} · \frac{\sqrt{5} - 1}{\sqrt{5} - 1} = 
 \frac{2 (\sqrt{5} - 1)}{\sqrt{5} \sqrt{5} - \sqrt{5} + \sqrt{5} - 1}  = \frac{2 (\sqrt{5} - 1)}{4} = \frac{\sqrt{5} - 1}{2}$$
 </details>
 
 <details>
-    <summary>$$\Phi - \Phi^{-1} = 1$$ &nbsp; — click to expand proof</summary>
-    $$\Phi - \Phi^{-1} = \frac{1 + \sqrt{5}}{2} - \frac{\sqrt{5} - 1}{2} = \frac{2}{2} = 1$$
+<summary>Click to expand proof &nbsp; $\Phi - \Phi^{-1} = 1$</summary>
+$$\Phi - \Phi^{-1} = \frac{1 + \sqrt{5}}{2} - \frac{\sqrt{5} - 1}{2} = \frac{2}{2} = 1$$
 </details>
 
 ### Fibonacci Theory
