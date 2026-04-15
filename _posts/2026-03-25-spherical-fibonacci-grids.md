@@ -387,13 +387,13 @@ $$
 
 ## Basis Vectors of a SFG
 
-An alternative definition of a planar Fibonacci grid exists using a pair of consecutive $basis vectors$. In this case, the points are not restricted to the unit square but they exist in a planar Fibonacci lattice $F_L$.
+An alternative definition of a planar Fibonacci grid exists using a pair of consecutive **basis vectors**. In this case, the points are not restricted to the unit square but they exist in a planar Fibonacci lattice $F_L$.
 
-$$F_L = {p = z_0 b_k + z_1 b_{k+1} : (z_0, z_1) \in \mathbb{Z}^2}$$
+$$F_L = \{p = z_0 b_k + z_1 b_{k+1} : (z_0, z_1) \in \mathbb{Z}^2\}$$
 
 Swinbank and Purser observed that the basis vectors of a $F_L$ are expressed by:
 
-$$b_k = (\frac{F_k}{N}, \frac{(-1)^{k-1}}{\Phi^k}) \quad , \qquad k = 0, 1, \ldots, k_m$$
+$$b_k = (\frac{F_k}{N}, \frac{(-1)^{k-1}}{\Phi^k}), \qquad \text{where } k = 0, 1, \ldots, k_m$$
 
 and $k_m$ such that: $$F_{k_m} \leq N < F_{k_m+1}$$
 
