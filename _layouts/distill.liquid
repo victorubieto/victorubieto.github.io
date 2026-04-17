@@ -62,9 +62,13 @@
         <h1>{{ page.title }}</h1>
         <p>{{ page.description }}</p>
       </d-title>
-      {% if page.authors %}
-        <d-byline></d-byline>
-      {% endif %}
+      <p class="post-meta">
+      Created on {{ page.date | date: '%B %d, %Y' }}
+      {% if page.author %}by {{ page.author }}{% endif %}
+      {% assign last_date = page.last_modified_at | default: page.last_updated %}
+      {% if last_date %}, last updated on {{ last_date | date: '%B %d, %Y' }}{% endif %}
+      {% if page.meta %}• {{ page.meta }}{% endif %}
+    </p>
 
       <d-article>
         {% if page.toc and page.toc.size > 0 %}

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: distill
 title: Spherical Fibonacci Grids
 date: 2026-03-25 11:12:00-0400
 description: An interactive explanation of Spherical Fibonacci Grids and its properties.
@@ -429,11 +429,9 @@ $$b_{k+1} = b_k + b_{k-1}$$
 
 ### Unit Cell
 
-Using any pair of basis vectors ($b_k, b_{k+1}$) we can obtain a parallelogram area called **unit cell**. By definition the unit cell does not contain any point in its interior.
+Using any pair of basis vectors ($b_k, b_{k+1}$) we can obtain a parallelogram area called **unit cell**. By definition the unit cell does not contain any point in its interior. We can compute the area of the parallelogram by doing the determinant of the matrix composed by the basis vectors of that parallelogram. 
 
-Using a common linear algebra rule, we can compute the area of the parallelogram by doing the determinant of the matrix composed by the basis vectors of that parallelogram. 
-
-<aside style="float: right; width: 30%; margin-left: 20px; font-size: 0.85em; color: #6c757d; border-left: 3px solid #dee2e6; padding-left: 10px;">A detail video demonstrating it can be found <a href="https://youtu.be/n-S63_goDFg">here</a>.</aside>
+<aside><p>This is a a common linear algebra rule. A detail video demonstrating it can be found [here](https://youtu.be/n-S63_goDFg")</p>.</aside>
 
 $$M = 
 \begin{bmatrix}
