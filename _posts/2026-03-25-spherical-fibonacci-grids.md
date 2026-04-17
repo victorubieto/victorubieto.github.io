@@ -120,7 +120,7 @@ y_j &= \operatorname{frac}\!\left(\frac{j}{\Phi}\right)
 $$
 
 <span class="tt2-wrap">
-  <span class="tt2">$frac()$</span>
+  <span class="tt2">frac()</span>
   <span class="tt2-box">
     <div class="tt2-title">frac(x) = x mod 1</div>
     <div class="tt2-body">Takes the fractional part of a number.</div>
@@ -352,6 +352,15 @@ We can directly define the distribution on the **unit sphere** by using the **La
   y = \frac{\phi}{2\pi}
 \end{equation}
 
+$$
+\begin{equation}
+  \begin{aligned}
+    x &= \frac{1 - \cos(\theta)}{2} \\
+    y &= \frac{\phi}{2\pi}
+  \end{aligned}
+\end{equation}
+$$
+
 By substituting in the previous equation we obtain the polar coordinates of the $$j$$*-th* point of a **Spherical Fibonacci Grid**:
 
 $$
@@ -363,6 +372,19 @@ $$
 \right\}
 \quad 0 \le j \le N
 \label{eq:sfg}
+$$
+
+$$
+\begin{equation}
+  \label{eq:sfg}
+  \left.
+  \begin{aligned}
+    \theta_j &= \arccos\!\left(1 - \frac{2j}{N}\right) \\
+    \phi_j &= 2\pi j\,\Phi^{-1} \bmod 2\pi
+  \end{aligned}
+  \right\}
+  \quad 0 \le j \le N
+\end{equation}
 $$
 
 Also, *SFG*s are sometimes expressed with a shift in the *z*-axis. This shift symmetrizes the *z*-coordinate distribution so that the first and last points are at equal distances from their closest pole, which **improves the spherical discrepancy** of the point set.
@@ -409,9 +431,7 @@ $$b_{k+1} = b_k + b_{k-1}$$
 
 Using any pair of basis vectors ($b_k, b_{k+1}$) we can obtain a parallelogram area called **unit cell**. By definition the unit cell does not contain any point in its interior.
 
-Using a common linear algebra rule, we can compute the area of the parallelogram by doing the determinant of the matrix composed by the basis vectors of that parallelogram.
-
-<aside><p>A detail video demonstrating it can be found [here](https://youtu.be/n-S63_goDFg).</p></aside>
+Using a common linear algebra rule, we can compute the area of the parallelogram by doing the determinant of the matrix composed by the basis vectors of that parallelogram. {% sidenote 'video-expl' 'A detail video demonstrating it can be found [here](https://youtu.be/n-S63_goDFg).' %}
 
 $$M = 
 \begin{bmatrix}
