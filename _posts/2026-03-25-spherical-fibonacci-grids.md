@@ -6,6 +6,26 @@ description: An interactive explanation of Spherical Fibonacci Grids and its pro
 tags:
 categories: [interactive]
 related_posts: false
+
+bibliography: 2026-03-25-spherical-fibonacci-grids.bib
+
+toc:
+  - name: Theoretical Background
+    subsections:
+      - name: Golden Ratio
+        subsections:
+          - name: Further Golden Ratio Identities
+      - name: Fibonacci Theory
+  - name: Spherical Fibonacci Grid
+  - name: Basis Vectors of a SFG
+    subsections:
+      - name: Unit Cell
+      - name: Interpolation
+
+_styles: >
+  d-title {
+    padding: '4rem 0 0.5rem'
+  }
 ---
 
 The main problem in **Physically-Based Ray Tracing** (*PBRT*) is converging the value of the illumination integral that appears in the **Light Transport Equation** (*LTE*) (eq. \eqref{LTE}). Integral equations generally do not have an analytic solution, so numerical integration techniques are used. The most common approach is **Monte Carlo integration** (*MC*), which is based on randomization:
