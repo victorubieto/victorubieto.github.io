@@ -6,6 +6,7 @@ description: An interactive explanation of Spherical Fibonacci Grids and its pro
 tags:
 categories: [interactive]
 related_posts: false
+related_blog_posts: false
 
 bibliography: 2026-03-25-spherical-fibonacci-grids.bib
 
@@ -24,9 +25,30 @@ toc:
 
 _styles: >
   d-title {
-      padding-top: 4rem;
-      padding-bottom: 0.5em;
+    padding-top: 4rem;
+    padding-bottom: 0.5em;
   }
+  .tip {
+    position: relative;
+    border-bottom: 1px dashed currentColor;
+    cursor: help;
+  }
+  .tip .tip-box {
+    display: none;
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    width: 220px;
+    z-index: 100;
+    line-height: 1.5;
+  }
+  .tip:hover .tip-box { display: block; }
 ---
 
 The main problem in **Physically-Based Ray Tracing** (*PBRT*) is converging the value of the illumination integral that appears in the **Light Transport Equation** (*LTE*) (eq. \eqref{LTE}). Integral equations generally do not have an analytic solution, so numerical integration techniques are used. The most common approach is **Monte Carlo integration** (*MC*), which is based on randomization:
@@ -46,8 +68,6 @@ In this context, we find utility in low-discrepancy distributions such as *Fibon
 - **SFG** — Spherical Fibonacci point sets based on *planar Fibonacci grids*.
 
 *SFIL*s constrain point set sizes to be Fibonacci numbers. *SFG*s, on the other hand, allow generating point sets with an arbitrary number of points — which is strongly important in **Physically-Based Rendering** (*PBR*). For this reason, we focus on *SFG*s.
-
----
 
 ## Theoretical Background
 
@@ -122,8 +142,6 @@ $$\lim_{m \to \infty} \frac{F_{m+1}}{F_m} = \Phi \approx 1.618\ldots$$
 
 Due to this relation, Fibonacci-based distributions are frequently found in many applications requiring uniform, low-discrepancy coverage of a domain.
 
----
-
 ## Spherical Fibonacci Grid
 
 The *Cartesian* coordinates $(x_j,\, y_j)$ of the $$j$$*-th* point of a **Planar Fibonacci Grid** ($F_G$) with $$N$$ samples are given by:
@@ -140,12 +158,8 @@ y_j &= \operatorname{frac}\!\left(\frac{j}{\Phi}\right)
 \label{eq:pfg}
 $$
 
-<span class="tt2-wrap">
-  <span class="tt2">frac()</span>
-  <span class="tt2-box">
-    <div class="tt2-title">frac(x) = x mod 1</div>
-    <div class="tt2-body">Takes the fractional part of a number.</div>
-  </span>
+<span class="tip">frac()
+  <span class="tip-box">frac(x) = x mod 1. Takes the fractional part of a number.</span>
 </span>
 
 where $frac()$ denotes the fractional part, keeping values inside the unit square $[0,1)^2$.
@@ -380,19 +394,8 @@ $$
 By substituting in the previous equation we obtain the polar coordinates of the $$j$$*-th* point of a **Spherical Fibonacci Grid**:
 
 $$
-\left.
-\begin{aligned}
-\theta_j = \arccos\!\left(1 - \frac{2j}{N}\right) \\
-\phi_j = 2\pi j\,\Phi^{-1} \bmod 2\pi
-\end{aligned}
-\right\}
-\quad 0 \le j \le N
-\label{eq:sfga}
-$$
-
-$$
 \begin{equation}
-  \label{eq:sfgb}
+  \label{eq:sfg}
   \left.
   \begin{aligned}
     \theta_j &= \arccos\!\left(1 - \frac{2j}{N}\right) \\
@@ -413,14 +416,16 @@ This shift is **half the distance between samples** in the *z*-axis (half the de
 The symmetrized formulas become:
 
 $$
-\left.
-\begin{aligned}
-\theta_j = \arccos\!\left(1 - \frac{2j+1}{N}\right) \\
-\phi_j = 2\pi j\,\Phi^{-1} \bmod 2\pi
-\end{aligned}
-\right\}
-\quad 0 \le j \le N
-\label{eq:shift sfg}
+\begin{equation}
+  \label{eq:shift sfg}
+  \left.
+  \begin{aligned}
+    \theta_j = \arccos\!\left(1 - \frac{2j+1}{N}\right) \\
+    \phi_j = 2\pi j\,\Phi^{-1} \bmod 2\pi
+  \end{aligned}
+  \right\}
+  \quad 0 \le j \le N
+\end{equation}
 $$
 
 To finish this section, the previous equations will be presented in terms of the unit hemishpere instead of the unit sphere. This is quite necessary, since many uses cases in PBR are computed on the hemisphere (only accounting for the reflection effect and omitting the transmittance).
@@ -445,8 +450,6 @@ $$b_{k+1} = b_k + b_{k-1}$$
 
 Using any pair of basis vectors ($b_k, b_{k+1}$) we can obtain a parallelogram area called **unit cell**. By definition the unit cell does not contain any point in its interior. We can compute the area of the parallelogram by doing the determinant of the matrix composed by the basis vectors of that parallelogram. 
 
-<aside><p>This is a a common linear algebra rule. A detail video demonstrating it can be found <a href="https://youtu.be/n-S63_goDFg">here</a></p>.</aside>
-
 $$
 M = 
 \begin{bmatrix}
@@ -460,18 +463,17 @@ M =
 $$
 
 $$
-det(M) = \Delta_M = \frac{F_k}{N} · \frac{(-1)^{k}}{\Phi^{k+1}} - \frac{F_{k+1}}{N} · \frac{(-1)^{k-1}}{\Phi^{k}} = \frac{1}{N}
+\text{Area of Parallelogram} = det(M) = \Delta_M = \frac{F_k}{N} · \frac{(-1)^{k}}{\Phi^{k+1}} - \frac{F_{k+1}}{N} · \frac{(-1)^{k-1}}{\Phi^{k}} = \frac{1}{N}
 $$
+
+<aside><p>This is a a common linear algebra rule. A detail video demonstrating it can be found <a href="https://youtu.be/n-S63_goDFg">here</a></p>.</aside>
+
 
 We prove that the area of the unit cell of a Fibonacci distribution for any **N** will be $$\frac{1}{N}$$. This confirms us that it is a suitable lattice for *QMC* numerical integration. 
 
 ### Interpolation
 
 ...
-
-
-## References
-- Marques, R. et al. (2021), *Extensible Spherical Fibonacci Grids*, IEEE Transactions on Visualization and Computer Graphics.
 
 
 Distributed under the terms of the [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) License.
