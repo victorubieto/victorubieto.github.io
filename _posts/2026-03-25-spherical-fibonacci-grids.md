@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: distill
 title: Spherical Fibonacci Grids
 date: 2026-03-25 11:12:00-0400
 description: An interactive explanation of Spherical Fibonacci Grids and its properties.
@@ -443,7 +443,7 @@ We prove that the area of the unit cell of a Fibonacci distribution for any **N*
 
 ### Interpolation
 
-
+...
 
 
 ## References
