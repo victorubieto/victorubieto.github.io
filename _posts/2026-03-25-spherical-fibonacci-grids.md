@@ -8,21 +8,21 @@ categories: [interactive]
 related_posts: false
 ---
 
-The main problem in **Physically-Based Ray Tracing** is converging the value of the illumination integral that appears in the **Light Transport Equation** (LTE) (Eq. \eqref{LTE}). Integral equations generally do not have an analytic solution, so numerical integration techniques are used. The most common approach is **Monte Carlo integration** (MC), which is based on randomization:
+The main problem in **Physically-Based Ray Tracing** (*PBRT*) is converging the value of the illumination integral that appears in the **Light Transport Equation** (*LTE*) (see eq. \eqref{LTE}). Integral equations generally do not have an analytic solution, so numerical integration techniques are used. The most common approach is **Monte Carlo integration** (*MC*), which is based on randomization:
 
 \begin{equation}
-    \label{LTE}
-    L_o(p, \omega_o) = L_e(p, \omega_o) + \int_{S^2} f(p, \omega_o, \omega_i)\, L_i(p, \omega_i)\, |\cos\theta_i|\, d\omega_i
+  \label{LTE}
+  L_o(p, \omega_o) = L_e(p, \omega_o) + \int_{S^2} f(p, \omega_o, \omega_i)\, L_i(p, \omega_i)\, |\cos\theta_i|\, d\omega_i
 \end{equation}
 
-Further improvements focus on manipulating the random sampling to minimize convergence time — that is, distributing the samples so that we obtain the minimum error with the minimum number of samples. These methods fall under the category of **Quasi-Monte Carlo integration** (QMC).
+Further improvements focus on manipulating the random sampling to minimize convergence time — that is, distributing the samples so that we obtain the minimum error with the minimum number of samples. These methods fall under the category of **Quasi-Monte Carlo integration** (*QMC*).
 
-In this context, we find utility in low-discrepancy distributions such as Fibonacci-based spherical distributions. The main strength of these point sets is an extremely uniform distribution which is near-optimal in terms of *spherical cap discrepancy*. There are two families of such point sets:
+In this context, we find utility in low-discrepancy distributions such as *Fibonacci-based spherical distributions*. The main strength of these point sets is an extremely uniform distribution which is near-optimal in terms of *spherical cap discrepancy*. There are two families of such point sets:
 
-- **SFIL** — Spherical Fibonacci point sets based on planar Fibonacci integration lattices.
-- **SFG** — Spherical Fibonacci point sets based on planar Fibonacci grids.
+- **SFIL** — Spherical Fibonacci point sets based on *planar Fibonacci integration lattices*.
+- **SFG** — Spherical Fibonacci point sets based on *planar Fibonacci grids*.
 
-On one hand, SFILs constrain point set sizes to be Fibonacci numbers. SFGs, on the other hand, allow generating point sets with an arbitrary number of points — which is strongly important in Physically-Based Rendering. For this reason, we focus on SFGs.
+On one hand, *SFIL*s constrain point set sizes to be Fibonacci numbers. *SFG*s, on the other hand, allow generating point sets with an arbitrary number of points — which is strongly important in **Physically-Based Rendering** (*PBR*). For this reason, we focus on *SFG*s.
 
 <br>
 
@@ -36,21 +36,21 @@ In mathematics, two quantities are in **golden ratio** if their ratio is the sam
 
 $$\frac{a+b}{a} = \frac{a}{b} = \Phi \qquad \text{such that} \quad a > b > 0$$
 
-$$\Phi$$ (also called the extreme and mean ratio, or divine proportion) satisfies the quadratic equation and is an irrational number. Some people call it the most irrational number, and this property makes it extremely useful when distributing samples without generating repetition patterns, therefore implying a low discrepancy.
+$$\Phi$$ (also called the extreme and *mean ratio*, or *divine proportion*) satisfies the quadratic equation and is an irrational number. Some people call it the most irrational number, and this property makes it extremely useful when distributing samples without generating repetition patterns, therefore implying a low discrepancy.
 
 \begin{equation}
-    \label{golden ratio}
-    \Phi = \frac{1 + \sqrt{5}}{2} = 1.618\ldots
+  \label{golden ratio}
+  \Phi = \frac{1 + \sqrt{5}}{2} = 1.618\ldots
 \end{equation}
 
-The key identity to see what makes it unique is the following equation (its derivation can be found in the following subsection):
+The following key identity is what makes it unique (the derivation can be found in the following subsection):
 
 \begin{equation}
-    \label{gr key identity}
-    \frac{1}{\Phi} = \Phi - 1 \quad \Rightarrow \quad \frac{1}{\Phi} + 1 = \Phi \quad \Rightarrow \quad 1 + \Phi = \Phi^{2}   
+  \label{gr key identity}
+  \frac{1}{\Phi} = \Phi - 1 \quad \Rightarrow \quad \frac{1}{\Phi} + 1 = \Phi \quad \Rightarrow \quad 1 + \Phi = \Phi^{2}   
 \end{equation}
 
-This is mathematically exact and unique to the golden ratio because it satisfies the quadratic equation. We can also sustitute $$\Phi$$ in Eq. \eqref{gr key identity} to see it in a continued fraction expansion form. This shows that the golden ratio is the most irrational number, meaning that its rational approximation converges slower than for any other irrational number.
+This is mathematically exact and unique to the golden ratio because it satisfies the quadratic equation. We can also sustitute $$\Phi$$ in eq. \eqref{gr key identity} to see it in a continued fraction expansion form. This shows that the golden ratio is the **most irrational number**, meaning that its rational approximation converges slower than for any other irrational number.
 
 $$\Phi = 1 + \frac{1}{\Phi} =  1 + \frac{1}{1 + \frac{1}{1 + \frac{1}{\ldots}}}$$
 
@@ -87,11 +87,11 @@ $$\Phi^{-2} = \frac{1}{\Phi^{2}} = \frac{2}{3 + \sqrt{5}} = \frac{2}{3 + \sqrt{5
 
 ### Fibonacci Theory
 
-In mathematics, the Fibonacci sequence is defined such that each element is the sum of the two preceding ones:
+In mathematics, the *Fibonacci sequence* is defined such that each element is the sum of the two preceding ones:
 
 $$F_m = F_{m-1} + F_{m-2} \quad \text{for } m > 1, \qquad \text{where } F_0 = 0 \text{ and } F_1 = 1$$
 
-Fibonacci numbers appear unexpectedly often in mathematics, and are applied in multiple areas such as computer algorithms and biological settings (phyllotaxis, shell spirals, branching patterns).
+Fibonacci numbers appear unexpectedly often in mathematics, and are applied in multiple areas such as computer algorithms and biological settings (*phyllotaxis*, *shell spirals*, *branching patterns*).
 
 Fibonacci numbers are also strongly related to the golden ratio. As the sequence progresses, the ratio of successive Fibonacci numbers approaches a specific irrational number, the golden ratio $$\Phi$$:
 
@@ -105,26 +105,24 @@ Due to this relation, Fibonacci-based distributions are frequently found in many
 
 ---
 
-The Cartesian coordinates $(x_j,\, y_j)$ of the $$j$$-th point of a **Planar Fibonacci Grid** with $$N$$ samples are given by:
+The *Cartesian* coordinates $(x_j,\, y_j)$ of the $$j$$*-th* point of a **Planar Fibonacci Grid** ($F_G$) with $$N$$ samples are given by:
 
-$$
-\left.
-\begin{aligned}
-x_j &= \frac{j}{N} \\
-y_j &= \operatorname{frac}\!\left(\frac{j}{\Phi}\right)
-\end{aligned}
-\right\}
-\quad
-0 \le j \le N
-$$
+\begin{equation}
+  \left.
+  \begin{aligned}
+  x_j &= \frac{j}{N} \\
+  y_j &= \operatorname{frac}\!\left(\frac{j}{\Phi}\right)
+  \end{aligned}
+  \right\}
+  \quad
+  0 \le j \le N
+\end{equation}
 
 where $frac()$ denotes the fractional part, keeping values inside the unit square $[0,1)^2$.
 
-This gives a distribution of samples in the unit square where each coordinate has a different delta (space between points): $$\frac{1}{N}$$ in the $$x$$ coordinate, and $$\frac{1}{\Phi}$$ in the $$y$$ coordinate.
+This gives a distribution of samples in the **unit square** where each coordinate has a different *delta* (space between points): $$\frac{1}{N}$$ in the *x*-coordinate, and $$\frac{1}{\Phi}$$ in the *y*-coordinate.
 
 ---
-
-The viewer below shows the Planar Fibonacci Grid in the unit square. Observe how the points fill the square uniformly as you increase $$N$$. The vertical stripes at spacing $$1/N$$ and the diagonal offset at $$1/\Phi$$ are annotated to match the formula above.
 
 <style>
   .pfg-wrap { margin: 2rem 0; }
@@ -336,37 +334,34 @@ The viewer below shows the Planar Fibonacci Grid in the unit square. Observe how
 })();
 </script>
 
-The vertical lines in the plot are spaced exactly $$1/N$$ apart — one column per point. Within each column there is exactly one sample, placed at a $$y$$-height of $$\text{frac}(j/\Phi)$$. Because $$\Phi$$ is irrational, these heights never repeat, and consecutive heights always differ by the golden ratio modulo 1 — the most uniform possible stepping.
-
-The red dashed line marks $$y = 1/\Phi \approx 0.618$$, corresponding to the $$y$$-offset of the first point after $$j=0$$.
-
 ---
 
-We can directly define the distribution on the unit sphere by using the **Lambert cylindrical equal-area projection**. The result gives us the samples in terms of the elevation angle $$\theta$$ and the azimuth angle $$\phi$$. To maintain the uniformity of the samples along the vertical axis, the $$x$$ coordinate is mapped to $$z = \cos(\theta)$$. This projection gives us the following relation equations:
+We can directly define the distribution on the **unit sphere** by using the **Lambert cylindrical equal-area projection**. The result gives the samples in terms of the elevation angle $$\theta$$ and the azimuth angle $$\phi$$. To maintain the uniformity of the samples along the vertical axis, the *x*-coordinate is mapped to $$z = \cos(\theta)$$ instead of just $$\theta$$. This projection gives us the following relation equations:
 
-$$x = \frac{1 - \cos(\theta)}{2}$$
+\begin{equation}
+  x = \frac{1 - \cos(\theta)}{2} \\
+  y = \frac{\phi}{2\pi}
+\end{equation}
 
-$$y = \frac{\phi}{2\pi}$$
+By substituting in the previous equation we obtain the polar coordinates of the $$j$$*-th* point of a **Spherical Fibonacci Grid**:
 
-By substituting in the previous equation we obtain the polar coordinates of the $$j$$-th point of a Spherical Fibonacci Grid:
+\begin{equation}
+  \left.
+  \begin{aligned}
+  \theta_j = \arccos\!\left(1 - \frac{2j}{N}\right) \\
+  \phi_j = 2\pi j\,\Phi^{-1} \bmod 2\pi
+  \end{aligned}
+  \right\}
+  \quad
+  0 \le j \le N
+\end{equation}
 
-$$
-\left.
-\begin{aligned}
-\theta_j = \arccos\!\left(1 - \frac{2j}{N}\right) \\
-\phi_j = 2\pi j\,\Phi^{-1} \bmod 2\pi
-\end{aligned}
-\right\}
-\quad
-0 \le j \le N
-$$
+Also, *SFG*s are sometimes expressed with a shift in the *z*-axis. This shift symmetrizes the *z*-coordinate distribution so that the first and last points are at equal distances from their closest pole, which **improves the spherical discrepancy** of the point set.
 
-Then, SFGs are sometimes expressed with a shift in the $$z$$ axis. This shift symmetrizes the $$z$$ coordinate distribution so that the first and last points are at equal distances from their closest pole, which **improves the spherical discrepancy** of the point set.
+This shift is **half the distance between samples** in the *z*-axis (half the delta). It can be computed either in the unit square or on the unit sphere:
 
-This shift is half the distance between samples in the $$z$$ axis (half the delta). It can be computed either in the unit square or on the unit sphere:
-
-- **Unit Square:** $$\Delta x = \frac{1}{N} \Rightarrow$$ (half of this distance) $$\Rightarrow \frac{1}{2N}$$
-- **Unit Sphere:** $$z = \cos(\theta) = 1 - 2x = \frac{1 - 2j}{N} \Rightarrow \Delta z = \frac{2}{N} \Rightarrow$$ (half of this distance) $$\Rightarrow \frac{1}{N}$$
+- **Unit Square:** $$\Delta x = \frac{1}{N} \Rightarrow$$ (Half of this distance) $$\Rightarrow \frac{1}{2N}$$
+- **Unit Sphere:** $$z = \cos(\theta) = 1 - 2x = \frac{1 - 2j}{N} \Rightarrow \Delta z = \frac{2}{N} \Rightarrow$$ (Half of this distance) $$\Rightarrow \frac{1}{N}$$
 
 The symmetrized formulas become:
 
@@ -381,50 +376,51 @@ $$
 0 \le j \le N
 $$
 
-[HEMISPHERE EQUATIONS ...]
+To finish this section, the previous equations will be presented in terms of the unit hemishpere instead of the unit sphere. This is quite necessary, since many uses cases in PBR are computed on the hemisphere (only accounting for the reflection effect and omitting the transmittance).
+
+**[HEMISPHERE EQUATIONS ...]**
 
 ---
 
 ## Basis Vectors of a SFG
 
-An alternative definition of a planar Fibonacci grid exists using a pair of consecutive **basis vectors**. In this case, the points are not restricted to the unit square but they exist in a planar Fibonacci lattice $F_L$.
+An alternative definition of a planar Fibonacci grid exists using a pair of consecutive **basis vectors**. In this case, the points are not restricted to the unit square but they exist in a **planar Fibonacci lattice** ($F_L$).
 
-$$F_L = \{p = z_0 b_k + z_1 b_{k+1} : (z_0, z_1) \in \mathbb{Z}^2\}$$
+$$F_L = \{ p = z_0 b_k + z_1 b_{k+1} : (z_0, z_1) \in \mathbb{Z}^2 \}$$
 
-Swinbank and Purser observed that the basis vectors of a $F_L$ are expressed by:
+Swinbank and Purser {% cite swinbank&purser %} observed that the basis vectors of a $F_L$ are expressed by:
 
-$$b_k = (\frac{F_k}{N}, \frac{(-1)^{k-1}}{\Phi^k}), \qquad \text{where } k = 0, 1, \ldots, k_m$$
+$$b_k = (\frac{F_k}{N}, \frac{(-1)^{k-1}}{\Phi^k}), \qquad \text{where } k = 0, 1, \ldots, k_m \qquad \text{and } k_m \text{such that } F_{k_m} \leq N < F_{k_m+1}$$
 
-and $k_m$ such that: $$F_{k_m} \leq N < F_{k_m+1}$$
-
-where $N$ is the number of points on the grid and $F_{k_m}$ the largest Fibonacci number smaller or equal to $N$. The basis vectors satisfy a recurrence relationship similar to that of Fibonacci numbers. 
+$N$ is the number of points on the grid and $F_{k_m}$ the largest Fibonacci number smaller or equal to $N$. The basis vectors satisfy a recurrence relationship similar to that of Fibonacci numbers. 
 
 $$b_{k+1} = b_k + b_{k-1}$$
 
 ### Unit Cell
 
-Using any pair of basis vectors (bk, bk+1) we can obtain a parallelogram area called unit cell. By definition the unit cell does not contain any point in its interior.
+Using any pair of basis vectors ($b_k, b_{k+1}$) we can obtain a parallelogram area called **unit cell**. By definition the unit cell does not contain any point in its interior.
 
-Using a common linear algebra rule, we can compute the area of the parallelogram by doing the determinant of the matrix composed by the vectors of that parallelogram ([reference video](https://youtu.be/n-S63_goDFg)), in this case, the basis vectors.
+Using a common linear algebra rule, we can compute the area of the parallelogram by doing the determinant of the matrix composed by the basis vectors of that parallelogram ([reference video](https://youtu.be/n-S63_goDFg)).
 
 $$M = 
 \begin{bmatrix}
-b_k & b_{k+1}
+  b_k & b_{k+1}
 \end{bmatrix}
 =
 \begin{bmatrix}
-\frac{F_k}{N} & \frac{F_{k+1}}{N} \\
-\frac{(-1)^{k-1}}{\Phi^{k}} & \frac{(-1)^{k}}{\Phi^{k+1}}
+  \frac{F_k}{N} & \frac{F_{k+1}}{N} \\
+  \frac{(-1)^{k-1}}{\Phi^{k}} & \frac{(-1)^{k}}{\Phi^{k+1}}
 \end{bmatrix}
 $$
 
 $$det(M) = \Delta_M = \frac{F_k}{N} · \frac{(-1)^{k}}{\Phi^{k+1}} - \frac{F_{k+1}}{N} · \frac{(-1)^{k-1}}{\Phi^{k}} = \frac{1}{N}$$
 
-The result confirms us that this is a suitable lattice for QMC numerical integration.
+We prove that the area of the unit cell of a Fibonacci distribution for any **N** will be $$\frac{1}{N}$$. This confirms us that it is a suitable lattice for *QMC* numerical integration. 
 
 ### Interpolation
 
-...
+
+
 
 ## References
 - Marques, R. et al. (2021), *Extensible Spherical Fibonacci Grids*, IEEE Transactions on Visualization and Computer Graphics.
