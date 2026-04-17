@@ -1,5 +1,5 @@
 ---
-layout: distill
+layout: post
 title: Spherical Fibonacci Grids
 date: 2026-03-25 11:12:00-0400
 description: An interactive explanation of Spherical Fibonacci Grids and its properties.
@@ -108,14 +108,15 @@ Due to this relation, Fibonacci-based distributions are frequently found in many
 The *Cartesian* coordinates $(x_j,\, y_j)$ of the $$j$$*-th* point of a **Planar Fibonacci Grid** ($F_G$) with $$N$$ samples are given by:
 
 $$
-  \left.
-  \begin{aligned}
-  x_j &= \frac{j}{N} \\
-  y_j &= \operatorname{frac}\!\left(\frac{j}{\Phi}\right)
-  \end{aligned}
-  \right\}
-  \quad
-  0 \le j \le N
+\left.
+\begin{aligned}
+x_j &= \frac{j}{N} \\
+y_j &= \operatorname{frac}\!\left(\frac{j}{\Phi}\right)
+\end{aligned}
+\right\}
+\quad
+0 \le j \le N
+\label{eq:pfg}
 $$
 
 <span class="tt2-wrap">
@@ -354,22 +355,15 @@ We can directly define the distribution on the **unit sphere** by using the **La
 By substituting in the previous equation we obtain the polar coordinates of the $$j$$*-th* point of a **Spherical Fibonacci Grid**:
 
 $$
-  \left.
-  \begin{aligned}
-  \theta_j = \arccos\!\left(1 - \frac{2j}{N}\right) \\
-  \phi_j = 2\pi j\,\Phi^{-1} \bmod 2\pi
-  \end{aligned}
-  \right\}
-  \quad 0 \le j \le N
+\left.
+\begin{aligned}
+\theta_j = \arccos\!\left(1 - \frac{2j}{N}\right) \\
+\phi_j = 2\pi j\,\Phi^{-1} \bmod 2\pi
+\end{aligned}
+\right\}
+\quad 0 \le j \le N
+\label{eq:sfg}
 $$
-
-\begin{equation}
-  \left.\begin{aligned}
-    \theta_j &= \arccos\!\left(1 - \frac{2j}{N}\right) \\
-    \phi_j   &= 2\pi j\,\Phi^{-1} \bmod 2\pi
-  \end{aligned}\right\}
-  \quad 0 \leq j < N
-\end{equation}
 
 Also, *SFG*s are sometimes expressed with a shift in the *z*-axis. This shift symmetrizes the *z*-coordinate distribution so that the first and last points are at equal distances from their closest pole, which **improves the spherical discrepancy** of the point set.
 
@@ -388,15 +382,8 @@ $$
 \end{aligned}
 \right\}
 \quad 0 \le j \le N
+\label{eq:shift sfg}
 $$
-
-\begin{equation}
-  \left.\begin{aligned}
-    \theta_j = \arccos\!\left(1 - \frac{2j+1}{N}\right) \\
-    \phi_j = 2\pi j\,\Phi^{-1} \bmod 2\pi
-  \end{aligned}\right\}
-  \quad 0 \le j \le N
-\end{equation}
 
 To finish this section, the previous equations will be presented in terms of the unit hemishpere instead of the unit sphere. This is quite necessary, since many uses cases in PBR are computed on the hemisphere (only accounting for the reflection effect and omitting the transmittance).
 
