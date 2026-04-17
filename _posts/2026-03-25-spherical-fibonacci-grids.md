@@ -24,16 +24,19 @@ toc:
 
 _styles: >
   d-title {
-    padding: '4rem 0 0.5rem'
+      padding-top: 4rem;
+      padding-bottom: 0.5em;
   }
 ---
 
 The main problem in **Physically-Based Ray Tracing** (*PBRT*) is converging the value of the illumination integral that appears in the **Light Transport Equation** (*LTE*) (eq. \eqref{LTE}). Integral equations generally do not have an analytic solution, so numerical integration techniques are used. The most common approach is **Monte Carlo integration** (*MC*), which is based on randomization:
 
+$$
 \begin{equation}
   \label{LTE}
   L_o(p, \omega_o) = L_e(p, \omega_o) + \int_{S^2} f(p, \omega_o, \omega_i)\, L_i(p, \omega_i)\, |\cos\theta_i|\, d\omega_i
 \end{equation}
+$$
 
 Further improvements focus on manipulating the random sampling to minimize convergence time — that is, distributing the samples so that we obtain the minimum error with the minimum number of samples. These methods fall under the category of **Quasi-Monte Carlo integration** (*QMC*).
 
@@ -44,11 +47,9 @@ In this context, we find utility in low-discrepancy distributions such as *Fibon
 
 *SFIL*s constrain point set sizes to be Fibonacci numbers. *SFG*s, on the other hand, allow generating point sets with an arbitrary number of points — which is strongly important in **Physically-Based Rendering** (*PBR*). For this reason, we focus on *SFG*s.
 
-<br>
+---
 
 ## Theoretical Background
-
----
 
 ### Golden Ratio
 
@@ -58,17 +59,21 @@ $$\frac{a+b}{a} = \frac{a}{b} = \Phi \qquad \text{such that} \quad a > b > 0$$
 
 $$\Phi$$ (also called the extreme and *mean ratio*, or *divine proportion*) satisfies the quadratic equation and is an irrational number. Some people call it the most irrational number, and this property makes it extremely useful when distributing samples without generating repetition patterns, therefore implying a low discrepancy.
 
+$$
 \begin{equation}
   \label{golden ratio}
   \Phi = \frac{1 + \sqrt{5}}{2} = 1.618\ldots
 \end{equation}
+$$
 
 The following key identity is what makes it unique (the derivation can be found in the following subsection):
 
+$$
 \begin{equation}
   \label{gr key identity}
   \frac{1}{\Phi} = \Phi - 1 \quad \Rightarrow \quad \frac{1}{\Phi} + 1 = \Phi \quad \Rightarrow \quad 1 + \Phi = \Phi^{2}   
 \end{equation}
+$$
 
 This is mathematically exact and unique to the golden ratio because it satisfies the quadratic equation. We can also sustitute $$\Phi$$ in eq. \eqref{gr key identity} to see it in a continued fraction expansion form. This shows that the golden ratio is the **most irrational number**, meaning that its rational approximation converges slower than for any other irrational number.
 
@@ -103,8 +108,6 @@ $$\Phi^{-2} = \frac{1}{\Phi^{2}} = \frac{2}{3 + \sqrt{5}} = \frac{2}{3 + \sqrt{5
 \frac{2 (3 - \sqrt{5})}{9 - 3 \sqrt{5} + 3 \sqrt{5} - \sqrt{5}^{2}} = \frac{6 - 2 \sqrt{5}}{9 - 5} = \frac{3 - \sqrt{5}}{2}$$
 </details>
 
-<br>
-
 ### Fibonacci Theory
 
 In mathematics, the *Fibonacci sequence* is defined such that each element is the sum of the two preceding ones:
@@ -119,11 +122,9 @@ $$\lim_{m \to \infty} \frac{F_{m+1}}{F_m} = \Phi \approx 1.618\ldots$$
 
 Due to this relation, Fibonacci-based distributions are frequently found in many applications requiring uniform, low-discrepancy coverage of a domain.
 
-<br>
+---
 
 ## Spherical Fibonacci Grid
-
----
 
 The *Cartesian* coordinates $(x_j,\, y_j)$ of the $$j$$*-th* point of a **Planar Fibonacci Grid** ($F_G$) with $$N$$ samples are given by:
 
@@ -367,11 +368,6 @@ This gives a distribution of samples in the **unit square** where each coordinat
 
 We can directly define the distribution on the **unit sphere** by using the **Lambert cylindrical equal-area projection**. The result gives the samples in terms of the elevation angle $$\theta$$ and the azimuth angle $$\phi$$. To maintain the uniformity of the samples along the vertical axis, the *x*-coordinate is mapped to $$z = \cos(\theta)$$ instead of just $$\theta$$. This projection gives us the following relation equations:
 
-\begin{equation}
-  x = \frac{1 - \cos(\theta)}{2} \\
-  y = \frac{\phi}{2\pi}
-\end{equation}
-
 $$
 \begin{equation}
   \begin{aligned}
@@ -391,12 +387,12 @@ $$
 \end{aligned}
 \right\}
 \quad 0 \le j \le N
-\label{eq:sfg}
+\label{eq:sfga}
 $$
 
 $$
 \begin{equation}
-  \label{eq:sfg}
+  \label{eq:sfgb}
   \left.
   \begin{aligned}
     \theta_j &= \arccos\!\left(1 - \frac{2j}{N}\right) \\
@@ -431,15 +427,13 @@ To finish this section, the previous equations will be presented in terms of the
 
 **[HEMISPHERE EQUATIONS ...]**
 
----
-
 ## Basis Vectors of a SFG
 
 An alternative definition of a planar Fibonacci grid exists using a pair of consecutive **basis vectors**. In this case, the points are not restricted to the unit square but they exist in a **planar Fibonacci lattice** ($F_L$).
 
 $$F_L = \{ p = z_0 b_k + z_1 b_{k+1} : (z_0, z_1) \in \mathbb{Z}^2 \}$$
 
-Swinbank and Purser {% cite swinbank&purser %} observed that the basis vectors of a $F_L$ are expressed by:
+Swinbank and Purser <d-cite key="swinbank&purser"></d-cite> observed that the basis vectors of a $F_L$ are expressed by:
 
 $$b_k = (\frac{F_k}{N}, \frac{(-1)^{k-1}}{\Phi^k}), \qquad \text{where } k = 0, 1, \ldots, k_m \qquad \text{and } k_m \text{such that } F_{k_m} \leq N < F_{k_m+1}$$
 
@@ -451,9 +445,10 @@ $$b_{k+1} = b_k + b_{k-1}$$
 
 Using any pair of basis vectors ($b_k, b_{k+1}$) we can obtain a parallelogram area called **unit cell**. By definition the unit cell does not contain any point in its interior. We can compute the area of the parallelogram by doing the determinant of the matrix composed by the basis vectors of that parallelogram. 
 
-<aside><p>This is a a common linear algebra rule. A detail video demonstrating it can be found [here](https://youtu.be/n-S63_goDFg")</p>.</aside>
+<aside><p>This is a a common linear algebra rule. A detail video demonstrating it can be found <a href="https://youtu.be/n-S63_goDFg">here</a></p>.</aside>
 
-$$M = 
+$$
+M = 
 \begin{bmatrix}
   b_k & b_{k+1}
 \end{bmatrix}
@@ -464,7 +459,9 @@ $$M =
 \end{bmatrix}
 $$
 
-$$det(M) = \Delta_M = \frac{F_k}{N} · \frac{(-1)^{k}}{\Phi^{k+1}} - \frac{F_{k+1}}{N} · \frac{(-1)^{k-1}}{\Phi^{k}} = \frac{1}{N}$$
+$$
+det(M) = \Delta_M = \frac{F_k}{N} · \frac{(-1)^{k}}{\Phi^{k+1}} - \frac{F_{k+1}}{N} · \frac{(-1)^{k-1}}{\Phi^{k}} = \frac{1}{N}
+$$
 
 We prove that the area of the unit cell of a Fibonacci distribution for any **N** will be $$\frac{1}{N}$$. This confirms us that it is a suitable lattice for *QMC* numerical integration. 
 
