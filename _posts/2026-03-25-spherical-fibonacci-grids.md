@@ -8,7 +8,7 @@ categories: [interactive]
 related_posts: false
 ---
 
-The main problem in **Physically-Based Ray Tracing** (*PBRT*) is converging the value of the illumination integral that appears in the **Light Transport Equation** (*LTE*) (see eq. \eqref{LTE}). Integral equations generally do not have an analytic solution, so numerical integration techniques are used. The most common approach is **Monte Carlo integration** (*MC*), which is based on randomization:
+The main problem in **Physically-Based Ray Tracing** (*PBRT*) is converging the value of the illumination integral that appears in the **Light Transport Equation** (*LTE*) (eq. \eqref{LTE}). Integral equations generally do not have an analytic solution, so numerical integration techniques are used. The most common approach is **Monte Carlo integration** (*MC*), which is based on randomization:
 
 \begin{equation}
   \label{LTE}
@@ -22,7 +22,7 @@ In this context, we find utility in low-discrepancy distributions such as *Fibon
 - **SFIL** — Spherical Fibonacci point sets based on *planar Fibonacci integration lattices*.
 - **SFG** — Spherical Fibonacci point sets based on *planar Fibonacci grids*.
 
-On one hand, *SFIL*s constrain point set sizes to be Fibonacci numbers. *SFG*s, on the other hand, allow generating point sets with an arbitrary number of points — which is strongly important in **Physically-Based Rendering** (*PBR*). For this reason, we focus on *SFG*s.
+*SFIL*s constrain point set sizes to be Fibonacci numbers. *SFG*s, on the other hand, allow generating point sets with an arbitrary number of points — which is strongly important in **Physically-Based Rendering** (*PBR*). For this reason, we focus on *SFG*s.
 
 <br>
 
@@ -107,7 +107,7 @@ Due to this relation, Fibonacci-based distributions are frequently found in many
 
 The *Cartesian* coordinates $(x_j,\, y_j)$ of the $$j$$*-th* point of a **Planar Fibonacci Grid** ($F_G$) with $$N$$ samples are given by:
 
-\begin{equation}
+$$
   \left.
   \begin{aligned}
   x_j &= \frac{j}{N} \\
@@ -116,7 +116,15 @@ The *Cartesian* coordinates $(x_j,\, y_j)$ of the $$j$$*-th* point of a **Planar
   \right\}
   \quad
   0 \le j \le N
-\end{equation}
+$$
+
+<span class="tt2-wrap">
+  <span class="tt2">$frac()$</span>
+  <span class="tt2-box">
+    <div class="tt2-title">frac(x) = x mod 1</div>
+    <div class="tt2-body">Takes the fractional part of a number.</div>
+  </span>
+</span>
 
 where $frac()$ denotes the fractional part, keeping values inside the unit square $[0,1)^2$.
 
@@ -345,15 +353,22 @@ We can directly define the distribution on the **unit sphere** by using the **La
 
 By substituting in the previous equation we obtain the polar coordinates of the $$j$$*-th* point of a **Spherical Fibonacci Grid**:
 
-\begin{equation}
+$$
   \left.
   \begin{aligned}
   \theta_j = \arccos\!\left(1 - \frac{2j}{N}\right) \\
   \phi_j = 2\pi j\,\Phi^{-1} \bmod 2\pi
   \end{aligned}
   \right\}
-  \quad
-  0 \le j \le N
+  \quad 0 \le j \le N
+$$
+
+\begin{equation}
+  \left.\begin{aligned}
+    \theta_j &= \arccos\!\left(1 - \frac{2j}{N}\right) \\
+    \phi_j   &= 2\pi j\,\Phi^{-1} \bmod 2\pi
+  \end{aligned}\right\}
+  \quad 0 \leq j < N
 \end{equation}
 
 Also, *SFG*s are sometimes expressed with a shift in the *z*-axis. This shift symmetrizes the *z*-coordinate distribution so that the first and last points are at equal distances from their closest pole, which **improves the spherical discrepancy** of the point set.
@@ -372,9 +387,16 @@ $$
 \phi_j = 2\pi j\,\Phi^{-1} \bmod 2\pi
 \end{aligned}
 \right\}
-\quad
-0 \le j \le N
+\quad 0 \le j \le N
 $$
+
+\begin{equation}
+  \left.\begin{aligned}
+    \theta_j = \arccos\!\left(1 - \frac{2j+1}{N}\right) \\
+    \phi_j = 2\pi j\,\Phi^{-1} \bmod 2\pi
+  \end{aligned}\right\}
+  \quad 0 \le j \le N
+\end{equation}
 
 To finish this section, the previous equations will be presented in terms of the unit hemishpere instead of the unit sphere. This is quite necessary, since many uses cases in PBR are computed on the hemisphere (only accounting for the reflection effect and omitting the transmittance).
 
@@ -400,7 +422,9 @@ $$b_{k+1} = b_k + b_{k-1}$$
 
 Using any pair of basis vectors ($b_k, b_{k+1}$) we can obtain a parallelogram area called **unit cell**. By definition the unit cell does not contain any point in its interior.
 
-Using a common linear algebra rule, we can compute the area of the parallelogram by doing the determinant of the matrix composed by the basis vectors of that parallelogram ([reference video](https://youtu.be/n-S63_goDFg)).
+Using a common linear algebra rule, we can compute the area of the parallelogram by doing the determinant of the matrix composed by the basis vectors of that parallelogram.
+
+<aside><p>A detail video demonstrating it can be found [here](https://youtu.be/n-S63_goDFg).</p></aside>
 
 $$M = 
 \begin{bmatrix}
