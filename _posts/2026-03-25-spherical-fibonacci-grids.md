@@ -431,7 +431,9 @@ $$b_{k+1} = b_k + b_{k-1}$$
 
 Using any pair of basis vectors ($b_k, b_{k+1}$) we can obtain a parallelogram area called **unit cell**. By definition the unit cell does not contain any point in its interior.
 
-Using a common linear algebra rule, we can compute the area of the parallelogram by doing the determinant of the matrix composed by the basis vectors of that parallelogram. {% sidenote 'video-expl' 'A detail video demonstrating it can be found [here](https://youtu.be/n-S63_goDFg).' %}
+Using a common linear algebra rule, we can compute the area of the parallelogram by doing the determinant of the matrix composed by the basis vectors of that parallelogram. 
+
+<aside style="float: right; width: 30%; margin-left: 20px; font-size: 0.85em; color: #6c757d; border-left: 3px solid #dee2e6; padding-left: 10px;">A detail video demonstrating it can be found <a href="https://youtu.be/n-S63_goDFg">here</a>.</aside>
 
 $$M = 
 \begin{bmatrix}
