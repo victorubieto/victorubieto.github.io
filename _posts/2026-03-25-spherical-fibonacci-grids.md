@@ -147,15 +147,16 @@ Due to this relation, Fibonacci-based distributions are frequently found in many
 The *Cartesian* coordinates $(x_j,\, y_j)$ of the $$j$$*-th* point of a **Planar Fibonacci Grid** ($F_G$) with $$N$$ samples are given by:
 
 $$
-\left.
-\begin{aligned}
-x_j &= \frac{j}{N} \\
-y_j &= \operatorname{frac}\!\left(\frac{j}{\Phi}\right)
-\end{aligned}
-\right\}
-\quad
-0 \le j \le N
-\label{eq:pfg}
+\begin{equation}
+  \label{eq:pfg}
+  \left.
+  \begin{aligned}
+    x_j &= \frac{j}{N} \\
+    y_j &= \operatorname{frac}\!\left(\frac{j}{\Phi}\right)
+  \end{aligned}
+  \right\}
+  \quad 0 \le j \le N
+\end{equation}
 $$
 
 <span class="tip">frac()
@@ -402,7 +403,7 @@ $$
     \phi_j &= 2\pi j\,\Phi^{-1} \bmod 2\pi
   \end{aligned}
   \right\}
-  \quad 0 \le j \le N
+  \quad 0 \le j < N
 \end{equation}
 $$
 
@@ -424,7 +425,7 @@ $$
     \phi_j = 2\pi j\,\Phi^{-1} \bmod 2\pi
   \end{aligned}
   \right\}
-  \quad 0 \le j \le N
+  \quad 0 \le j < N
 \end{equation}
 $$
 
